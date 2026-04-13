@@ -1,6 +1,6 @@
 {
   "name": "mglass-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Le mGlass SDK",
   "main": "dist/mglass.css",
   "style": "dist/mglass.css",
