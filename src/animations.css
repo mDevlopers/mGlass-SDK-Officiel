@@ -1,0 +1,343 @@
+/* ============================================
+   mGlass SDK — Animations v1.0.0
+   Smooth Micro-Interactions & Effects
+   ============================================ */
+
+/* ── Keyframes ── */
+
+/* Fade In */
+@keyframes glass-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In (down) */
+@keyframes glass-fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In (up) */
+@keyframes glass-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In (left) */
+@keyframes glass-fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade In (right) */
+@keyframes glass-fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale In */
+@keyframes glass-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scale Up (for modals) */
+@keyframes glass-scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Blur In */
+@keyframes glass-blur-in {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Slide In Bottom */
+@keyframes glass-slide-in-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Glow Pulse */
+@keyframes glass-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(var(--glass-accent-rgb), 0.15),
+      0 0 40px rgba(var(--glass-accent-rgb), 0.05);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(var(--glass-accent-rgb), 0.25),
+      0 0 60px rgba(var(--glass-accent-rgb), 0.1);
+  }
+}
+
+/* Shimmer */
+@keyframes glass-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Float */
+@keyframes glass-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Spin */
+@keyframes glass-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulse */
+@keyframes glass-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Breathe (subtle scale) */
+@keyframes glass-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Background gradient shift */
+@keyframes glass-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ── Animation Utility Classes ── */
+
+/* Entrances */
+.glass-animate-in {
+  animation: glass-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.glass-animate-in-down {
+  animation: glass-fade-in-down 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.glass-animate-in-up {
+  animation: glass-fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.glass-animate-in-left {
+  animation: glass-fade-in-left 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.glass-animate-in-right {
+  animation: glass-fade-in-right 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.glass-animate-scale-in {
+  animation: glass-scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.glass-animate-blur-in {
+  animation: glass-blur-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Continuous */
+.glass-animate-glow {
+  animation: glass-glow 3s ease-in-out infinite;
+}
+
+.glass-animate-float {
+  animation: glass-float 4s ease-in-out infinite;
+}
+
+.glass-animate-pulse {
+  animation: glass-pulse 2s ease-in-out infinite;
+}
+
+.glass-animate-breathe {
+  animation: glass-breathe 4s ease-in-out infinite;
+}
+
+.glass-animate-spin {
+  animation: glass-spin 1s linear infinite;
+}
+
+/* Shimmer loader */
+.glass-animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: glass-shimmer 2s ease-in-out infinite;
+}
+
+/* Gradient background animation */
+.glass-animate-gradient {
+  background-size: 200% 200%;
+  animation: glass-gradient-shift 8s ease-in-out infinite;
+}
+
+/* ── Stagger Delays ── */
+.glass-delay-1 { animation-delay: 0.1s; }
+.glass-delay-2 { animation-delay: 0.2s; }
+.glass-delay-3 { animation-delay: 0.3s; }
+.glass-delay-4 { animation-delay: 0.4s; }
+.glass-delay-5 { animation-delay: 0.5s; }
+.glass-delay-6 { animation-delay: 0.6s; }
+.glass-delay-7 { animation-delay: 0.7s; }
+.glass-delay-8 { animation-delay: 0.8s; }
+
+/* Elements with stagger delay should start invisible */
+.glass-delay-1,
+.glass-delay-2,
+.glass-delay-3,
+.glass-delay-4,
+.glass-delay-5,
+.glass-delay-6,
+.glass-delay-7,
+.glass-delay-8 {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* ── Hover Micro-Interactions ── */
+
+/* Scale on hover */
+.glass-hover-scale {
+  transition: transform var(--glass-transition);
+}
+
+.glass-hover-scale:hover {
+  transform: scale(1.04);
+}
+
+/* Lift on hover */
+.glass-hover-lift {
+  transition:
+    transform var(--glass-transition),
+    box-shadow var(--glass-transition);
+}
+
+.glass-hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Glow on hover */
+.glass-hover-glow {
+  transition: box-shadow var(--glass-transition);
+}
+
+.glass-hover-glow:hover {
+  box-shadow:
+    0 0 30px rgba(var(--glass-accent-rgb), 0.2),
+    0 0 60px rgba(var(--glass-accent-rgb), 0.08);
+}
+
+/* Tilt on hover (3D perspective) */
+.glass-hover-tilt {
+  transition: transform var(--glass-transition);
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.glass-hover-tilt:hover {
+  transform: perspective(800px) rotateX(2deg) rotateY(-2deg);
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .glass-hover-scale:hover,
+  .glass-hover-lift:hover,
+  .glass-hover-tilt:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,263 @@
+/* ============================================
+   mGlass SDK — Cards v1.0.0
+   Glass Card Components
+   ============================================ */
+
+/* ── Base Glass Card ── */
+.glass-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--glass-radius);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  padding: var(--glass-space-xl);
+  overflow: hidden;
+  transition:
+    transform var(--glass-transition),
+    box-shadow var(--glass-transition),
+    border-color var(--glass-transition),
+    background var(--glass-transition);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ── Card Inner Glow (premium top highlight) ── */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 10%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 90%
+  );
+  pointer-events: none;
+}
+
+/* ── Card Sections ── */
+.glass-card-header {
+  padding-bottom: var(--glass-space-md);
+  margin-bottom: var(--glass-space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-body {
+  flex: 1;
+}
+
+.glass-card-footer {
+  padding-top: var(--glass-space-md);
+  margin-top: var(--glass-space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-title {
+  font-size: var(--glass-font-size-xl);
+  font-weight: var(--glass-font-weight-semibold);
+  color: var(--glass-text-on-accent);
+  margin-bottom: var(--glass-space-xs);
+}
+
+.glass-card-subtitle {
+  font-size: var(--glass-font-size-sm);
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: var(--glass-font-weight-regular);
+}
+
+.glass-card-text {
+  font-size: var(--glass-font-size-sm);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+/* ── Card with Image ── */
+.glass-card-img {
+  padding: 0;
+}
+
+.glass-card-img img,
+.glass-card-img-top img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.glass-card-img-top img {
+  border-radius: var(--glass-radius) var(--glass-radius) 0 0;
+}
+
+.glass-card-img-top + .glass-card-body,
+.glass-card-img-top + .glass-card-header {
+  padding: var(--glass-space-xl);
+}
+
+/* ── Card Sizes ── */
+.glass-card-sm {
+  padding: var(--glass-space-md);
+  border-radius: var(--glass-radius-sm);
+}
+
+.glass-card-lg {
+  padding: var(--glass-space-2xl);
+  border-radius: var(--glass-radius-lg);
+}
+
+/* ── Interactive Card (clickable) ── */
+.glass-card-interactive {
+  cursor: pointer;
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.glass-card-interactive:active {
+  transform: translateY(-2px) scale(0.99);
+  transition-duration: 0.08s;
+}
+
+/* ── Horizontal Card ── */
+.glass-card-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.glass-card-horizontal img {
+  width: 200px;
+  min-height: 100%;
+  object-fit: cover;
+  border-radius: var(--glass-radius) 0 0 var(--glass-radius);
+}
+
+.glass-card-horizontal .glass-card-body {
+  padding: var(--glass-space-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ── Stats / Metric Card ── */
+.glass-card-stat {
+  text-align: center;
+  padding: var(--glass-space-xl) var(--glass-space-lg);
+}
+
+.glass-card-stat-value {
+  font-size: var(--glass-font-size-4xl);
+  font-weight: var(--glass-font-weight-bold);
+  color: var(--glass-text-on-accent);
+  line-height: 1;
+  margin-bottom: var(--glass-space-xs);
+  letter-spacing: -0.04em;
+}
+
+.glass-card-stat-label {
+  font-size: var(--glass-font-size-sm);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: var(--glass-font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Card with Accent Border ── */
+.glass-card-accent-left {
+  border-left: 3px solid var(--glass-accent);
+}
+
+.glass-card-accent-top {
+  border-top: 3px solid var(--glass-accent);
+}
+
+.glass-card-accent-success {
+  border-left: 3px solid var(--glass-success);
+}
+
+.glass-card-accent-danger {
+  border-left: 3px solid var(--glass-danger);
+}
+
+.glass-card-accent-warning {
+  border-left: 3px solid var(--glass-warning);
+}
+
+/* ── Card Grid Layout ── */
+.glass-card-grid {
+  display: grid;
+  gap: var(--glass-space-lg);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/* ── Stacked Cards ── */
+.glass-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--glass-space-md);
+}
+
+/* ── Feature Card (large with icon) ── */
+.glass-card-feature {
+  text-align: center;
+  padding: var(--glass-space-2xl);
+}
+
+.glass-card-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--glass-radius-sm);
+  background: rgba(var(--glass-accent-rgb), 0.15);
+  color: var(--glass-accent);
+  font-size: 1.5rem;
+  margin-bottom: var(--glass-space-lg);
+}
+
+/* ── Responsive Cards ── */
+@media (max-width: 768px) {
+  .glass-card {
+    padding: var(--glass-space-lg);
+  }
+
+  .glass-card-lg {
+    padding: var(--glass-space-xl);
+  }
+
+  .glass-card-horizontal {
+    flex-direction: column;
+  }
+
+  .glass-card-horizontal img {
+    width: 100%;
+    min-height: 180px;
+    border-radius: var(--glass-radius) var(--glass-radius) 0 0;
+  }
+
+  .glass-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-card-stat-value {
+    font-size: var(--glass-font-size-3xl);
+  }
+}

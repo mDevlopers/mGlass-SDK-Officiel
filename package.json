@@ -1,0 +1,50 @@
+{
+  "name": "mglass-sdk",
+  "version": "0.5.0",
+  "description": "Le mGlass SDK utilisé dans mAI.",
+  "main": "dist/mglass.css",
+  "style": "dist/mglass.css",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "npx live-server examples --port=3000 --no-browser",
+    "watch": "node scripts/watch.js"
+  },
+  "keywords": [
+    "css",
+    "glassmorphism",
+    "liquid-glass",
+    "ui-kit",
+    "design-system",
+    "apple",
+    "visionos",
+    "glass",
+    "blur",
+    "backdrop-filter",
+    "components",
+    "dark-mode",
+    "animations",
+    "modern-ui",
+    "premium",
+    "mglass"
+  ],
+  "author": "mCompany",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcompany/mglass-sdk"
+  },
+  "homepage": "https://github.com/mcompany/mglass-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/mcompany/mglass-sdk/issues"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

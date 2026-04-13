@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="mGlass SDK — Liquid Glass UI Kit showcase. Premium glassmorphism design system for modern web apps.">
+  <title>mGlass SDK — Liquid Glass UI Kit</title>
+  <link rel="stylesheet" href="../dist/mglass.css">
+  <style>
+    /* ── Demo-specific styles ── */
+    .demo-section {
+      padding: var(--glass-space-3xl) 0;
+    }
+
+    .demo-section + .demo-section {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .demo-section-title {
+      font-size: var(--glass-font-size-2xl);
+      font-weight: var(--glass-font-weight-bold);
+      color: var(--glass-text-on-accent);
+      margin-bottom: var(--glass-space-xs);
+    }
+
+    .demo-section-subtitle {
+      font-size: var(--glass-font-size-sm);
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: var(--glass-space-2xl);
+    }
+
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--glass-space-md);
+      align-items: flex-start;
+    }
+
+    .demo-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.2em 0.6em;
+      border-radius: 4px;
+      margin-bottom: var(--glass-space-sm);
+    }
+
+    .demo-box {
+      padding: 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+      min-width: 200px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px var(--glass-space-xl) var(--glass-space-3xl);
+      position: relative;
+    }
+
+    .hero-bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-bg-orb-1 {
+      width: 500px;
+      height: 500px;
+      background: #667eea;
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero-bg-orb-2 {
+      width: 400px;
+      height: 400px;
+      background: #f093fb;
+      bottom: 0;
+      left: -100px;
+    }
+
+    .hero-bg-orb-3 {
+      width: 300px;
+      height: 300px;
+      background: #00d4ff;
+      bottom: 100px;
+      right: 20%;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: var(--glass-space-lg);
+      display: block;
+      animation: glass-float 4s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: var(--glass-space-sm);
+      line-height: 1.1;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #667eea, #f093fb, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: var(--glass-font-size-lg);
+      color: rgba(255, 255, 255, 0.55);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: var(--glass-space-xl);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: var(--glass-space-xl);
+      margin-top: var(--glass-space-2xl);
+    }
+
+    .hero-stat-value {
+      font-size: var(--glass-font-size-2xl);
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .hero-stat-label {
+      font-size: var(--glass-font-size-xs);
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Theme select */
+    .theme-selector {
+      position: fixed;
+      bottom: var(--glass-space-lg);
+      right: var(--glass-space-lg);
+      z-index: 999;
+      display: flex;
+      gap: 6px;
+      padding: 6px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--glass-radius-full);
+    }
+
+    .theme-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .theme-dot:hover {
+      transform: scale(1.2);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .theme-dot.active {
+      border-color: #fff;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    }
+
+    .theme-dot[data-theme="dark"] { background: linear-gradient(135deg, #302b63, #24243e); }
+    .theme-dot[data-theme="light"] { background: linear-gradient(135deg, #e0eaf5, #c2d6f2); }
+    .theme-dot[data-theme="midnight"] { background: linear-gradient(135deg, #090979, #00d4ff); }
+    .theme-dot[data-theme="sunset"] { background: linear-gradient(135deg, #f12711, #f5af19); }
+    .theme-dot[data-theme="aurora"] { background: linear-gradient(135deg, #0f2027, #2c5364); }
+
+    @media (max-width: 768px) {
+      .hero-stats {
+        flex-direction: column;
+        gap: var(--glass-space-md);
+      }
+
+      .theme-selector {
+        bottom: var(--glass-space-sm);
+        right: var(--glass-space-sm);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+       ═══════════════════════════════════════ -->
+  <nav class="glass-navbar glass-navbar-transparent" id="mainNav">
+    <a class="glass-navbar-brand" href="#">
+      🧊 mGlass
+    </a>
+    <ul class="glass-navbar-menu" id="navMenu">
+      <li><a class="glass-navbar-link active" href="#hero">Home</a></li>
+      <li><a class="glass-navbar-link" href="#glass">Glass</a></li>
+      <li><a class="glass-navbar-link" href="#cards">Cards</a></li>
+      <li><a class="glass-navbar-link" href="#buttons">Buttons</a></li>
+      <li><a class="glass-navbar-link" href="#forms">Forms</a></li>
+      <li><a class="glass-navbar-link" href="#components">More</a></li>
+    </ul>
+    <div class="glass-navbar-actions">
+      <button class="glass-btn glass-btn-sm glass-btn-primary" onclick="openModal()">Demo Modal</button>
+      <button class="glass-navbar-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-orb hero-bg-orb-1"></div>
+    <div class="hero-bg-orb hero-bg-orb-2"></div>
+    <div class="hero-bg-orb hero-bg-orb-3"></div>
+
+    <span class="hero-icon glass-animate-in">🧊</span>
+
+    <h1 class="glass-animate-in glass-delay-1">
+      <span>Liquid Glass</span><br>UI Kit
+    </h1>
+
+    <p class="hero-subtitle glass-animate-in glass-delay-2">
+      A premium CSS design system inspired by Apple's visionOS. Beautiful glassmorphism components,
+      ready for production.
+    </p>
+
+    <div class="glass-flex glass-gap-md glass-animate-in glass-delay-3">
+      <a href="#glass" class="glass-btn glass-btn-primary glass-btn-lg glass-btn-pill">
+        Explore Components
+      </a>
+      <a href="https://github.com/mcompany/mglass-sdk" class="glass-btn glass-btn-ghost glass-btn-lg glass-btn-pill">
+        ⭐ GitHub
+      </a>
+    </div>
+
+    <div class="hero-stats glass-animate-in glass-delay-4">
+      <div>
+        <div class="hero-stat-value">20+</div>
+        <div class="hero-stat-label">Components</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">5</div>
+        <div class="hero-stat-label">Themes</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">0</div>
+        <div class="hero-stat-label">Dependencies</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">~65KB</div>
+        <div class="hero-stat-label">Total Size</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="glass-container">
+
+    <!-- ═══════════════════════════════════════
+         GLASS EFFECTS
+         ═══════════════════════════════════════ -->
+    <section class="demo-section" id="glass">
+      <div class="demo-section-title glass-animate-in">🧊 Glass Effects</div>
+      <div class="demo-section-subtitle">Core glass variants with backdrop blur and transparency</div>
+
+      <div class="glass-grid glass-grid-3">
+        <div class="glass demo-box glass-animate-in glass-delay-1">
+          <span class="demo-label">.glass</span>
+          <p>Standard glass effect</p>
+        </div>
+        <div class="glass-frosted demo-box glass-animate-in glass-delay-2">
+          <span class="demo-label">.glass-frosted</span>
+          <p>Apple-style frosted glass</p>
+        </div>
+        <div class="glass-liquid demo-box glass-animate-in glass-delay-3">
+          <span class="demo-label">.glass-liquid</span>
+          <p>Premium liquid shimmer ✨</p>
+        </div>
+        <div class="glass-heavy demo-box glass-animate-in glass-delay-4">
+          <span class="demo-label">.glass-heavy</span>
+          <p>Heavy blur variant</p>
+        </div>
+        <div class="glass-light demo-box glass-animate-in glass-delay-5">
+          <span class="demo-label">.glass-light</span>
+          <p>Subtle light glass</p>
+        </div>
+        <div class="glass-accent demo-box glass-animate-in glass-delay-6">
+          <span class="demo-label">.glass-accent</span>
+          <p>Accent-tinted glass</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CARDS
+         ═══════════════════════════════════════ -->
+    <section class="demo-section" id="cards">
+      <div class="demo-section-title">🃏 Cards</div>
+      <div class="demo-section-subtitle">Versatile glass card components for content display</div>
+
+      <div class="glass-grid glass-grid-3 glass-mb-xl">
+        <div class="glass-card glass-card-interactive glass-animate-in glass-delay-1">
+          <div class="glass-card-feature-icon">🚀</div>
+          <h4 class="glass-card-title">Performance</h4>
+          <p class="glass-card-text">Zero JavaScript dependencies. Pure CSS with smooth GPU-accelerated animations.</p>
+        </div>
+
+        <div class="glass-card glass-card-interactive glass-animate-in glass-delay-2">
+          <div class="glass-card-feature-icon">🎨</div>
+          <h4 class="glass-card-title">Customizable</h4>
+          <p class="glass-card-text">Override CSS variables to match your brand. 70+ design tokens available.</p>
+        </div>
+
+        <div class="glass-card glass-card-interactive glass-animate-in glass-delay-3">
+          <div class="glass-card-feature-icon">📱</div>
+          <h4 class="glass-card-title">Responsive</h4>
+          <p class="glass-card-text">Mobile-first design. Every component looks great on any screen size.</p>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="demo-label glass-mb-md">Stat Cards</div>
+      <div class="glass-grid glass-grid-4 glass-mb-xl">
+        <div class="glass-card glass-card-stat glass-animate-in glass-delay-1">
+          <div class="glass-card-stat-value">12.4K</div>
+          <div class="glass-card-stat-label">Downloads</div>
+        </div>
+        <div class="glass-card glass-card-stat glass-animate-in glass-delay-2">
+          <div class="glass-card-stat-value">99.9%</div>
+          <div class="glass-card-stat-label">Uptime</div>
+        </div>
+        <div class="glass-card glass-card-stat glass-animate-in glass-delay-3">
+          <div class="glass-card-stat-value">4.9★</div>
+          <div class="glass-card-stat-label">Rating</div>
+        </div>
+        <div class="glass-card glass-card-stat glass-animate-in glass-delay-4">
+          <div class="glass-card-stat-value">~65KB</div>
+          <div class="glass-card-stat-label">Bundle Size</div>
+        </div>
+      </div>
+
+      <!-- Accent Cards -->
+      <div class="demo-label glass-mb-md">Accent Cards</div>
+      <div class="glass-grid glass-grid-3">
+        <div class="glass-card glass-card-accent-left glass-card-sm">
+          <div class="glass-card-title" style="font-size: 1rem;">🔵 Information</div>
+          <p class="glass-card-text">Accent border for emphasis</p>
+        </div>
+        <div class="glass-card glass-card-accent-success glass-card-sm">
+          <div class="glass-card-title" style="font-size: 1rem;">✅ Success</div>
+          <p class="glass-card-text">Green accent for positive states</p>
+        </div>
+        <div class="glass-card glass-card-accent-danger glass-card-sm">
+          <div class="glass-card-title" style="font-size: 1rem;">🔴 Error</div>
+          <p class="glass-card-text">Red accent for alerts</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         BUTTONS
+         ═══════════════════════════════════════ -->
+    <section class="demo-section" id="buttons">
+      <div class="demo-section-title">🔘 Buttons</div>
+      <div class="demo-section-subtitle">Glass buttons with hover glow and micro-animations</div>
+
+      <div class="demo-label">Variants</div>
+      <div class="demo-row glass-mb-xl">
+        <button class="glass-btn">Default</button>
+        <button class="glass-btn glass-btn-primary">Primary</button>
+        <button class="glass-btn glass-btn-success">Success</button>
+        <button class="glass-btn glass-btn-danger">Danger</button>
+        <button class="glass-btn glass-btn-warning">Warning</button>
+        <button class="glass-btn glass-btn-ghost">Ghost</button>
+      </div>
+
+      <div class="demo-label">Sizes</div>
+      <div class="demo-row glass-items-center glass-mb-xl">
+        <button class="glass-btn glass-btn-primary glass-btn-xs">Extra Small</button>
+        <button class="glass-btn glass-btn-primary glass-btn-sm">Small</button>
+        <button class="glass-btn glass-btn-primary">Default</button>
+        <button class="glass-btn glass-btn-primary glass-btn-lg">Large</button>
+        <button class="glass-btn glass-btn-primary glass-btn-xl">Extra Large</button>
+      </div>
+
+      <div class="demo-label">Shapes & States</div>
+      <div class="demo-row glass-items-center glass-mb-xl">
+        <button class="glass-btn glass-btn-primary glass-btn-pill">Pill Button</button>
+        <button class="glass-btn glass-btn-icon glass-btn-primary" aria-label="Like">❤️</button>
+        <button class="glass-btn glass-btn-primary glass-btn-loading">Loading</button>
+        <button class="glass-btn glass-btn-primary" disabled>Disabled</button>
+      </div>
+
+      <div class="demo-label">Button Group</div>
+      <div class="glass-btn-group">
+        <button class="glass-btn">Left</button>
+        <button class="glass-btn">Center</button>
+        <button class="glass-btn">Right</button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FORMS
+         ═══════════════════════════════════════ -->
+    <section class="demo-section" id="forms">
+      <div class="demo-section-title">📝 Form Components</div>
+      <div class="demo-section-subtitle">Glass-styled inputs, selects, and form controls</div>
+
+      <div class="glass-grid glass-grid-2">
+        <div class="glass-card">
+          <h4 class="glass-card-title" style="font-size: 1.1rem;">Sign In</h4>
+          <p class="glass-card-subtitle glass-mb-lg">Enter your credentials</p>
+
+          <div class="glass-form-group">
+            <label class="glass-label">Email</label>
+            <input class="glass-input" type="email" placeholder="you@example.com">
+          </div>
+
+          <div class="glass-form-group">
+            <label class="glass-label">Password</label>
+            <input class="glass-input" type="password" placeholder="••••••••">
+            <span class="glass-form-hint">Minimum 8 characters</span>
+          </div>
+
+          <div class="glass-flex glass-items-center glass-justify-between glass-mb-lg">
+            <label class="glass-flex glass-items-center glass-gap-sm" style="cursor:pointer">
+              <label class="glass-switch">
+                <input type="checkbox">
+                <span class="glass-switch-slider"></span>
+              </label>
+              <span style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Remember me</span>
+            </label>
+            <a href="#" style="font-size: 0.85rem;">Forgot password?</a>
+          </div>
+
+          <button class="glass-btn glass-btn-primary glass-btn-block">Sign In</button>
+        </div>
+
+        <div class="glass-card">
+          <h4 class="glass-card-title" style="font-size: 1.1rem;">Contact Form</h4>
+          <p class="glass-card-subtitle glass-mb-lg">We'd love to hear from you</p>
+
+          <div class="glass-form-group">
+            <label class="glass-label">Name</label>
+            <input class="glass-input" type="text" placeholder="John Doe">
+          </div>
+
+          <div class="glass-form-group">
+            <label class="glass-label">Category</label>
+            <select class="glass-input glass-select">
+              <option>General Inquiry</option>
+              <option>Bug Report</option>
+              <option>Feature Request</option>
+              <option>Partnership</option>
+            </select>
+          </div>
+
+          <div class="glass-form-group">
+            <label class="glass-label">Message</label>
+            <textarea class="glass-input glass-textarea" placeholder="Tell us more..." rows="4"></textarea>
+          </div>
+
+          <div class="glass-form-group">
+            <label class="glass-label">Validation States</label>
+            <input class="glass-input glass-input-success glass-mb-sm" value="Valid input" readonly>
+            <input class="glass-input glass-input-error" value="Invalid input" readonly>
+            <span class="glass-form-error">This field has an error.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         MORE COMPONENTS
+         ═══════════════════════════════════════ -->
+    <section class="demo-section" id="components">
+      <div class="demo-section-title">🧩 More Components</div>
+      <div class="demo-section-subtitle">Badges, toasts, avatars, progress, tabs, and more</div>
+
+      <!-- Badges -->
+      <div class="demo-label glass-mb-sm">Badges</div>
+      <div class="demo-row glass-items-center glass-mb-xl">
+        <span class="glass-badge">Default</span>
+        <span class="glass-badge glass-badge-primary">Primary</span>
+        <span class="glass-badge glass-badge-success glass-badge-dot">Online</span>
+        <span class="glass-badge glass-badge-danger glass-badge-dot">Error</span>
+        <span class="glass-badge glass-badge-warning">Warning</span>
+      </div>
+
+      <!-- Tabs -->
+      <div class="demo-label glass-mb-sm">Tabs</div>
+      <div class="glass-tabs glass-mb-xl" style="display: inline-flex;">
+        <button class="glass-tab active" onclick="activateTab(this)">Overview</button>
+        <button class="glass-tab" onclick="activateTab(this)">Analytics</button>
+        <button class="glass-tab" onclick="activateTab(this)">Settings</button>
+        <button class="glass-tab" onclick="activateTab(this)">Account</button>
+      </div>
+
+      <!-- Progress -->
+      <div class="demo-label glass-mb-sm">Progress Bars</div>
+      <div class="glass-card glass-card-sm glass-mb-xl" style="max-width: 500px;">
+        <div class="glass-flex glass-justify-between glass-mb-sm" style="font-size:0.85rem; color:rgba(255,255,255,0.6);">
+          <span>Storage used</span>
+          <span>65%</span>
+        </div>
+        <div class="glass-progress glass-mb-lg">
+          <div class="glass-progress-bar" style="width: 65%;"></div>
+        </div>
+        <div class="glass-flex glass-justify-between glass-mb-sm" style="font-size:0.85rem; color:rgba(255,255,255,0.6);">
+          <span>Build progress</span>
+          <span>38%</span>
+        </div>
+        <div class="glass-progress">
+          <div class="glass-progress-bar" style="width: 38%; background: linear-gradient(90deg, var(--glass-success), #6ee7b7);"></div>
+        </div>
+      </div>
+
+      <!-- Avatars -->
+      <div class="demo-label glass-mb-sm">Avatars</div>
+      <div class="demo-row glass-items-center glass-mb-xl">
+        <div class="glass-avatar glass-avatar-sm">S</div>
+        <div class="glass-avatar">M</div>
+        <div class="glass-avatar glass-avatar-lg">L</div>
+        <div class="glass-avatar glass-avatar-xl">XL</div>
+        <div class="glass-navbar-divider"></div>
+        <div class="glass-avatar-group">
+          <div class="glass-avatar" style="background: rgba(99,102,241,0.3); color: #818cf8;">A</div>
+          <div class="glass-avatar" style="background: rgba(48,209,88,0.3); color: #30d158;">B</div>
+          <div class="glass-avatar" style="background: rgba(255,69,58,0.3); color: #ff453a;">C</div>
+          <div class="glass-avatar" style="background: rgba(255,214,10,0.3); color: #ffd60a;">+3</div>
+        </div>
+      </div>
+
+      <!-- Toggle Switches -->
+      <div class="demo-label glass-mb-sm">Toggle Switches</div>
+      <div class="demo-row glass-items-center glass-mb-xl">
+        <label class="glass-switch">
+          <input type="checkbox" checked>
+          <span class="glass-switch-slider"></span>
+        </label>
+        <span style="font-size:0.85rem; color:rgba(255,255,255,0.6);">Enabled</span>
+
+        <label class="glass-switch">
+          <input type="checkbox">
+          <span class="glass-switch-slider"></span>
+        </label>
+        <span style="font-size:0.85rem; color:rgba(255,255,255,0.6);">Disabled</span>
+      </div>
+
+      <!-- Toasts -->
+      <div class="demo-label glass-mb-sm">Toast Notifications</div>
+      <div class="glass-flex glass-flex-col glass-gap-sm" style="max-width: 420px;">
+        <div class="glass-toast glass-toast-success">
+          ✅ Operation completed successfully!
+        </div>
+        <div class="glass-toast glass-toast-danger">
+          ❌ An error occurred. Please try again.
+        </div>
+        <div class="glass-toast glass-toast-warning">
+          ⚠️ Warning: Storage almost full.
+        </div>
+        <div class="glass-toast glass-toast-info">
+          ℹ️ New update available.
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         ANIMATIONS
+         ═══════════════════════════════════════ -->
+    <section class="demo-section" id="animations">
+      <div class="demo-section-title">✨ Animations</div>
+      <div class="demo-section-subtitle">Smooth hover interactions and continuous effects</div>
+
+      <div class="demo-label glass-mb-sm">Hover Interactions</div>
+      <div class="glass-grid glass-grid-3 glass-mb-xl">
+        <div class="glass-card glass-hover-lift glass-text-center">
+          <p class="glass-card-title" style="font-size:1rem;">↑ Lift</p>
+          <p class="glass-card-text">.glass-hover-lift</p>
+        </div>
+        <div class="glass-card glass-hover-scale glass-text-center">
+          <p class="glass-card-title" style="font-size:1rem;">⬡ Scale</p>
+          <p class="glass-card-text">.glass-hover-scale</p>
+        </div>
+        <div class="glass-card glass-hover-glow glass-text-center">
+          <p class="glass-card-title" style="font-size:1rem;">✦ Glow</p>
+          <p class="glass-card-text">.glass-hover-glow</p>
+        </div>
+      </div>
+
+      <div class="demo-label glass-mb-sm">Continuous Effects</div>
+      <div class="glass-grid glass-grid-3">
+        <div class="glass-card glass-animate-glow glass-text-center">
+          <p class="glass-card-title" style="font-size:1rem;">✨ Glow</p>
+          <p class="glass-card-text">.glass-animate-glow</p>
+        </div>
+        <div class="glass-card glass-animate-float glass-text-center">
+          <p class="glass-card-title" style="font-size:1rem;">🎈 Float</p>
+          <p class="glass-card-text">.glass-animate-float</p>
+        </div>
+        <div class="glass-card glass-animate-breathe glass-text-center">
+          <p class="glass-card-title" style="font-size:1rem;">💨 Breathe</p>
+          <p class="glass-card-text">.glass-animate-breathe</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         TOOLTIPS
+         ═══════════════════════════════════════ -->
+    <section class="demo-section">
+      <div class="demo-section-title">💡 Tooltips</div>
+      <div class="demo-section-subtitle">Hover to reveal contextual information</div>
+
+      <div class="demo-row glass-gap-lg">
+        <button class="glass-btn glass-tooltip" data-tooltip="This is a tooltip!">Hover me</button>
+        <button class="glass-btn glass-btn-primary glass-tooltip" data-tooltip="Primary action">Action</button>
+        <span class="glass-badge glass-badge-success glass-tooltip" data-tooltip="Everything is working">Status ✓</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SKELETON LOADERS
+         ═══════════════════════════════════════ -->
+    <section class="demo-section">
+      <div class="demo-section-title">⏳ Skeleton Loaders</div>
+      <div class="demo-section-subtitle">Placeholder loading states for a polished UX</div>
+
+      <div class="glass-card" style="max-width: 400px;">
+        <div class="glass-flex glass-gap-md glass-items-center glass-mb-lg">
+          <div class="glass-skeleton glass-skeleton-circle" style="width:48px; height:48px;"></div>
+          <div style="flex:1">
+            <div class="glass-skeleton glass-skeleton-text" style="width:60%;"></div>
+            <div class="glass-skeleton glass-skeleton-text" style="width:40%;"></div>
+          </div>
+        </div>
+        <div class="glass-skeleton glass-skeleton-rect" style="width:100%; height:140px; margin-bottom: 1rem;"></div>
+        <div class="glass-skeleton glass-skeleton-text"></div>
+        <div class="glass-skeleton glass-skeleton-text"></div>
+        <div class="glass-skeleton glass-skeleton-text" style="width:75%;"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════ -->
+    <footer class="demo-section glass-text-center" style="padding-bottom: 120px;">
+      <div class="glass-divider"></div>
+      <p style="color: rgba(255,255,255,0.35); font-size: 0.85rem;">
+        🧊 mGlass SDK v1.0.0 — Liquid Glass UI Kit<br>
+        Made with ❤️ by <strong style="color: rgba(255,255,255,0.6);">mCompany</strong>
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       MODAL (Hidden by default)
+       ═══════════════════════════════════════ -->
+  <div class="glass-modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
+  <div class="glass-modal" id="demoModal">
+    <div class="glass-modal-header">
+      <span class="glass-modal-title">🧊 mGlass Modal</span>
+      <button class="glass-modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="glass-modal-body">
+      <p>This is a premium glass modal dialog. It features a blur backdrop, smooth spring animation, and a frosted glass card.</p>
+      <br>
+      <p>You can use it for confirmations, forms, settings, or any content overlay.</p>
+      <br>
+      <div class="glass-form-group">
+        <label class="glass-label">Quick feedback</label>
+        <input class="glass-input" placeholder="What do you think?">
+      </div>
+    </div>
+    <div class="glass-modal-footer">
+      <button class="glass-btn glass-btn-ghost glass-btn-sm" onclick="closeModal()">Cancel</button>
+      <button class="glass-btn glass-btn-primary glass-btn-sm" onclick="closeModal()">Confirm</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       THEME SELECTOR
+       ═══════════════════════════════════════ -->
+  <div class="theme-selector">
+    <div class="theme-dot active" data-theme="dark" onclick="setTheme('dark', this)" title="Dark"></div>
+    <div class="theme-dot" data-theme="light" onclick="setTheme('light', this)" title="Light"></div>
+    <div class="theme-dot" data-theme="midnight" onclick="setTheme('midnight', this)" title="Midnight"></div>
+    <div class="theme-dot" data-theme="sunset" onclick="setTheme('sunset', this)" title="Sunset"></div>
+    <div class="theme-dot" data-theme="aurora" onclick="setTheme('aurora', this)" title="Aurora"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT (Minimal — for demo only)
+       ═══════════════════════════════════════ -->
+  <script>
+    // ── Navbar scroll effect ──
+    const navbar = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('glass-navbar-scrolled', window.scrollY > 50);
+    });
+
+    // ── Mobile menu toggle ──
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    navMenu.querySelectorAll('.glass-navbar-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    // ── Modal ──
+    function openModal() {
+      document.getElementById('modalBackdrop').classList.add('open');
+      document.getElementById('demoModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.remove('open');
+      document.getElementById('demoModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ESC to close modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // ── Theme Switcher ──
+    function setTheme(theme, el) {
+      document.documentElement.setAttribute('data-theme', theme);
+      document.querySelectorAll('.theme-dot').forEach(d => d.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // ── Tab activation ──
+    function activateTab(tab) {
+      tab.parentElement.querySelectorAll('.glass-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    }
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ── Intersection Observer for scroll animations ──
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('[class*="glass-animate-"]').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+/* ============================================
+   mGlass SDK — Themes v1.0.0
+   Dark Mode & Theme Variations
+   ============================================ */
+
+/* ── Dark Theme (Default) ── */
+[data-theme="dark"],
+.glass-theme-dark {
+  --glass-opacity: 0.12;
+  --glass-opacity-hover: 0.18;
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-hover: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --glass-shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.35);
+  --glass-shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-hover: rgba(255, 255, 255, 0.1);
+  --glass-bg-solid: #0a0a0f;
+  --glass-bg-page: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  --glass-text-primary: rgba(255, 255, 255, 0.92);
+  --glass-text-secondary: rgba(255, 255, 255, 0.6);
+  --glass-text-tertiary: rgba(255, 255, 255, 0.35);
+}
+
+/* ── Light Theme ── */
+[data-theme="light"],
+.glass-theme-light {
+  --glass-opacity: 0.45;
+  --glass-opacity-hover: 0.55;
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-border-hover: rgba(0, 0, 0, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --glass-shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.1);
+  --glass-shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg-hover: rgba(255, 255, 255, 0.75);
+  --glass-bg-solid: #f5f5f7;
+  --glass-bg-page: linear-gradient(135deg, #e8e0f0 0%, #c2d6f2 50%, #e0eaf5 100%);
+  --glass-text-primary: rgba(0, 0, 0, 0.85);
+  --glass-text-secondary: rgba(0, 0, 0, 0.55);
+  --glass-text-tertiary: rgba(0, 0, 0, 0.35);
+  --glass-text-on-accent: #ffffff;
+}
+
+/* Light theme overrides for glass components */
+[data-theme="light"] .glass,
+.glass-theme-light .glass {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .glass:hover,
+.glass-theme-light .glass:hover {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .glass-card,
+.glass-theme-light .glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .glass-card:hover,
+.glass-theme-light .glass-card:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .glass-card::before,
+.glass-theme-light .glass-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent 10%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 90%
+  );
+}
+
+[data-theme="light"] .glass-card-title,
+.glass-theme-light .glass-card-title {
+  color: var(--glass-text-primary);
+}
+
+[data-theme="light"] .glass-card-subtitle,
+.glass-theme-light .glass-card-subtitle {
+  color: var(--glass-text-secondary);
+}
+
+[data-theme="light"] .glass-card-text,
+.glass-theme-light .glass-card-text {
+  color: var(--glass-text-secondary);
+}
+
+[data-theme="light"] .glass-card-stat-value,
+.glass-theme-light .glass-card-stat-value {
+  color: var(--glass-text-primary);
+}
+
+[data-theme="light"] .glass-card-stat-label,
+.glass-theme-light .glass-card-stat-label {
+  color: var(--glass-text-tertiary);
+}
+
+[data-theme="light"] .glass-btn,
+.glass-theme-light .glass-btn {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--glass-text-primary);
+}
+
+[data-theme="light"] .glass-btn:hover,
+.glass-theme-light .glass-btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .glass-btn-primary,
+[data-theme="light"] .glass-btn-success,
+[data-theme="light"] .glass-btn-danger,
+.glass-theme-light .glass-btn-primary,
+.glass-theme-light .glass-btn-success,
+.glass-theme-light .glass-btn-danger {
+  color: var(--glass-text-on-accent);
+}
+
+[data-theme="light"] .glass-navbar,
+.glass-theme-light .glass-navbar {
+  background: rgba(255, 255, 255, 0.6);
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .glass-navbar-brand,
+.glass-theme-light .glass-navbar-brand {
+  color: var(--glass-text-primary);
+}
+
+[data-theme="light"] .glass-navbar-link,
+.glass-theme-light .glass-navbar-link {
+  color: var(--glass-text-secondary);
+}
+
+[data-theme="light"] .glass-navbar-link:hover,
+.glass-theme-light .glass-navbar-link:hover {
+  color: var(--glass-text-primary);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .glass-navbar-link.active,
+.glass-theme-light .glass-navbar-link.active {
+  color: var(--glass-text-primary);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* ── Midnight Theme ── */
+[data-theme="midnight"],
+.glass-theme-midnight {
+  --glass-opacity: 0.1;
+  --glass-opacity-hover: 0.15;
+  --glass-border: rgba(100, 120, 255, 0.1);
+  --glass-border-hover: rgba(100, 120, 255, 0.2);
+  --glass-bg: rgba(30, 30, 80, 0.2);
+  --glass-bg-hover: rgba(30, 30, 80, 0.3);
+  --glass-bg-solid: #050510;
+  --glass-bg-page: linear-gradient(135deg, #020024 0%, #090979 50%, #00d4ff 100%);
+  --glass-text-primary: rgba(200, 210, 255, 0.95);
+  --glass-text-secondary: rgba(200, 210, 255, 0.6);
+  --glass-text-tertiary: rgba(200, 210, 255, 0.35);
+  --glass-accent: #6366f1;
+  --glass-accent-rgb: 99, 102, 241;
+  --glass-accent-hover: #818cf8;
+}
+
+/* ── Sunset Theme ── */
+[data-theme="sunset"],
+.glass-theme-sunset {
+  --glass-opacity: 0.1;
+  --glass-opacity-hover: 0.15;
+  --glass-border: rgba(255, 160, 100, 0.15);
+  --glass-border-hover: rgba(255, 160, 100, 0.25);
+  --glass-bg: rgba(80, 30, 30, 0.15);
+  --glass-bg-hover: rgba(80, 30, 30, 0.22);
+  --glass-bg-solid: #1a0808;
+  --glass-bg-page: linear-gradient(135deg, #f12711 0%, #f5af19 50%, #ff6b6b 100%);
+  --glass-text-primary: rgba(255, 240, 230, 0.95);
+  --glass-text-secondary: rgba(255, 240, 230, 0.6);
+  --glass-text-tertiary: rgba(255, 240, 230, 0.35);
+  --glass-accent: #f59e0b;
+  --glass-accent-rgb: 245, 158, 11;
+  --glass-accent-hover: #fbbf24;
+}
+
+/* ── Aurora Theme ── */
+[data-theme="aurora"],
+.glass-theme-aurora {
+  --glass-opacity: 0.08;
+  --glass-opacity-hover: 0.14;
+  --glass-border: rgba(100, 255, 200, 0.12);
+  --glass-border-hover: rgba(100, 255, 200, 0.2);
+  --glass-bg: rgba(10, 50, 40, 0.15);
+  --glass-bg-hover: rgba(10, 50, 40, 0.22);
+  --glass-bg-solid: #020a08;
+  --glass-bg-page: linear-gradient(135deg, #0f2027 0%, #203a43 30%, #2c5364 60%, #0f4c75 100%);
+  --glass-text-primary: rgba(200, 255, 230, 0.95);
+  --glass-text-secondary: rgba(200, 255, 230, 0.6);
+  --glass-text-tertiary: rgba(200, 255, 230, 0.35);
+  --glass-accent: #10b981;
+  --glass-accent-rgb: 16, 185, 129;
+  --glass-accent-hover: #34d399;
+}
+
+/* ── Auto Dark Mode (System Preference) ── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --glass-opacity: 0.12;
+    --glass-opacity-hover: 0.18;
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-border-hover: rgba(255, 255, 255, 0.2);
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-bg-hover: rgba(255, 255, 255, 0.1);
+    --glass-bg-solid: #0a0a0f;
+    --glass-bg-page: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    --glass-text-primary: rgba(255, 255, 255, 0.92);
+    --glass-text-secondary: rgba(255, 255, 255, 0.6);
+    --glass-text-tertiary: rgba(255, 255, 255, 0.35);
+  }
+}
+
+/* ── Theme Toggle Utility ── */
+.glass-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--glass-radius-full);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all var(--glass-transition);
+  color: var(--glass-text-primary);
+}
+
+.glass-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(15deg) scale(1.08);
+}
+
+/* ── Preset Background Variants ── */
+.glass-bg-cosmic {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+}
+
+.glass-bg-ocean {
+  background: linear-gradient(135deg, #0077b6 0%, #023e8a 50%, #48cae4 100%) !important;
+}
+
+.glass-bg-forest {
+  background: linear-gradient(135deg, #134e5e 0%, #71b280 100%) !important;
+}
+
+.glass-bg-ember {
+  background: linear-gradient(135deg, #f12711 0%, #f5af19 100%) !important;
+}
+
+.glass-bg-void {
+  background: linear-gradient(135deg, #000000 0%, #0a0a1a 50%, #1a1a2e 100%) !important;
+}
+
+.glass-bg-silk {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffeaa7 100%) !important;
+}
+
+.glass-bg-nebula {
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 50%, #8ec5fc 100%) !important;
+}

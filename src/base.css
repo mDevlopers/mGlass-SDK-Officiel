@@ -1,0 +1,296 @@
+/* ============================================
+   mGlass SDK — Base System v1.0.0
+   Liquid Glass Design System
+   ============================================ */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+
+/* ── CSS Custom Properties (Design Tokens) ── */
+:root {
+  /* ── Glass Core ── */
+  --glass-blur: 20px;
+  --glass-blur-heavy: 40px;
+  --glass-blur-light: 10px;
+  --glass-opacity: 0.08;
+  --glass-opacity-hover: 0.12;
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-border-hover: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --glass-shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.12);
+  --glass-shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --glass-radius: 16px;
+  --glass-radius-sm: 10px;
+  --glass-radius-lg: 24px;
+  --glass-radius-xl: 32px;
+  --glass-radius-full: 9999px;
+
+  /* ── Colors ── */
+  --glass-accent: #0a84ff;
+  --glass-accent-hover: #409cff;
+  --glass-accent-rgb: 10, 132, 255;
+  --glass-success: #30d158;
+  --glass-success-rgb: 48, 209, 88;
+  --glass-warning: #ffd60a;
+  --glass-warning-rgb: 255, 214, 10;
+  --glass-danger: #ff453a;
+  --glass-danger-rgb: 255, 69, 58;
+  --glass-info: #64d2ff;
+  --glass-info-rgb: 100, 210, 255;
+
+  /* ── Text ── */
+  --glass-text-primary: rgba(0, 0, 0, 0.85);
+  --glass-text-secondary: rgba(0, 0, 0, 0.55);
+  --glass-text-tertiary: rgba(0, 0, 0, 0.35);
+  --glass-text-on-accent: #ffffff;
+
+  /* ── Background ── */
+  --glass-bg: rgba(255, 255, 255, var(--glass-opacity));
+  --glass-bg-hover: rgba(255, 255, 255, var(--glass-opacity-hover));
+  --glass-bg-solid: #f5f5f7;
+  --glass-bg-page: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+
+  /* ── Typography ── */
+  --glass-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --glass-font-size-xs: 0.75rem;
+  --glass-font-size-sm: 0.875rem;
+  --glass-font-size-base: 1rem;
+  --glass-font-size-lg: 1.125rem;
+  --glass-font-size-xl: 1.25rem;
+  --glass-font-size-2xl: 1.5rem;
+  --glass-font-size-3xl: 1.875rem;
+  --glass-font-size-4xl: 2.25rem;
+  --glass-font-size-5xl: 3rem;
+  --glass-font-weight-light: 300;
+  --glass-font-weight-regular: 400;
+  --glass-font-weight-medium: 500;
+  --glass-font-weight-semibold: 600;
+  --glass-font-weight-bold: 700;
+  --glass-line-height: 1.6;
+  --glass-letter-spacing: -0.02em;
+
+  /* ── Spacing ── */
+  --glass-space-xs: 0.25rem;
+  --glass-space-sm: 0.5rem;
+  --glass-space-md: 1rem;
+  --glass-space-lg: 1.5rem;
+  --glass-space-xl: 2rem;
+  --glass-space-2xl: 3rem;
+  --glass-space-3xl: 4rem;
+
+  /* ── Transitions ── */
+  --glass-transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --glass-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --glass-transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --glass-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Z-Index Scale ── */
+  --glass-z-base: 1;
+  --glass-z-dropdown: 100;
+  --glass-z-sticky: 200;
+  --glass-z-navbar: 300;
+  --glass-z-modal-backdrop: 400;
+  --glass-z-modal: 500;
+  --glass-z-toast: 600;
+}
+
+/* ── Global Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base Typography ── */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--glass-font-family);
+  font-size: var(--glass-font-size-base);
+  font-weight: var(--glass-font-weight-regular);
+  line-height: var(--glass-line-height);
+  letter-spacing: var(--glass-letter-spacing);
+  color: var(--glass-text-primary);
+  background: var(--glass-bg-page);
+  min-height: 100vh;
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--glass-font-weight-bold);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+h1 { font-size: var(--glass-font-size-5xl); }
+h2 { font-size: var(--glass-font-size-4xl); }
+h3 { font-size: var(--glass-font-size-3xl); }
+h4 { font-size: var(--glass-font-size-2xl); }
+h5 { font-size: var(--glass-font-size-xl); }
+h6 { font-size: var(--glass-font-size-lg); }
+
+/* ── Links ── */
+a {
+  color: var(--glass-accent);
+  text-decoration: none;
+  transition: color var(--glass-transition-fast);
+}
+
+a:hover {
+  color: var(--glass-accent-hover);
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(var(--glass-accent-rgb), 0.25);
+  color: inherit;
+}
+
+/* ── Scrollbar (WebKit) ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--glass-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ── Utility Classes ── */
+.glass-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--glass-space-lg);
+}
+
+.glass-container-sm {
+  max-width: 640px;
+}
+
+.glass-container-md {
+  max-width: 960px;
+}
+
+.glass-container-lg {
+  max-width: 1200px;
+}
+
+.glass-container-xl {
+  max-width: 1440px;
+}
+
+/* ── Text Utilities ── */
+.glass-text-center { text-align: center; }
+.glass-text-left { text-align: left; }
+.glass-text-right { text-align: right; }
+
+.glass-text-xs { font-size: var(--glass-font-size-xs); }
+.glass-text-sm { font-size: var(--glass-font-size-sm); }
+.glass-text-base { font-size: var(--glass-font-size-base); }
+.glass-text-lg { font-size: var(--glass-font-size-lg); }
+.glass-text-xl { font-size: var(--glass-font-size-xl); }
+.glass-text-2xl { font-size: var(--glass-font-size-2xl); }
+.glass-text-3xl { font-size: var(--glass-font-size-3xl); }
+
+.glass-text-light { font-weight: var(--glass-font-weight-light); }
+.glass-text-medium { font-weight: var(--glass-font-weight-medium); }
+.glass-text-semibold { font-weight: var(--glass-font-weight-semibold); }
+.glass-text-bold { font-weight: var(--glass-font-weight-bold); }
+
+.glass-text-primary { color: var(--glass-text-primary); }
+.glass-text-secondary { color: var(--glass-text-secondary); }
+.glass-text-tertiary { color: var(--glass-text-tertiary); }
+.glass-text-accent { color: var(--glass-accent); }
+.glass-text-white { color: #ffffff; }
+
+/* ── Spacing Utilities ── */
+.glass-mt-sm { margin-top: var(--glass-space-sm); }
+.glass-mt-md { margin-top: var(--glass-space-md); }
+.glass-mt-lg { margin-top: var(--glass-space-lg); }
+.glass-mt-xl { margin-top: var(--glass-space-xl); }
+
+.glass-mb-sm { margin-bottom: var(--glass-space-sm); }
+.glass-mb-md { margin-bottom: var(--glass-space-md); }
+.glass-mb-lg { margin-bottom: var(--glass-space-lg); }
+.glass-mb-xl { margin-bottom: var(--glass-space-xl); }
+
+.glass-p-sm { padding: var(--glass-space-sm); }
+.glass-p-md { padding: var(--glass-space-md); }
+.glass-p-lg { padding: var(--glass-space-lg); }
+.glass-p-xl { padding: var(--glass-space-xl); }
+
+/* ── Flex Utilities ── */
+.glass-flex { display: flex; }
+.glass-flex-col { flex-direction: column; }
+.glass-flex-wrap { flex-wrap: wrap; }
+.glass-items-center { align-items: center; }
+.glass-justify-center { justify-content: center; }
+.glass-justify-between { justify-content: space-between; }
+.glass-justify-around { justify-content: space-around; }
+.glass-gap-xs { gap: var(--glass-space-xs); }
+.glass-gap-sm { gap: var(--glass-space-sm); }
+.glass-gap-md { gap: var(--glass-space-md); }
+.glass-gap-lg { gap: var(--glass-space-lg); }
+.glass-gap-xl { gap: var(--glass-space-xl); }
+
+/* ── Grid Utilities ── */
+.glass-grid {
+  display: grid;
+  gap: var(--glass-space-lg);
+}
+
+.glass-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.glass-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.glass-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ── Responsive Grid ── */
+@media (max-width: 1024px) {
+  .glass-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .glass-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .glass-grid-4,
+  .glass-grid-3,
+  .glass-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-container {
+    padding: 0 var(--glass-space-md);
+  }
+
+  h1 { font-size: var(--glass-font-size-3xl); }
+  h2 { font-size: var(--glass-font-size-2xl); }
+  h3 { font-size: var(--glass-font-size-xl); }
+}
+
+/* ── Visibility ── */
+.glass-hidden { display: none; }
+.glass-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
