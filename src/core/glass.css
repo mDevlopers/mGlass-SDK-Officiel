@@ -16,6 +16,7 @@
     border-color var(--glass-transition),
     box-shadow var(--glass-transition),
     transform var(--glass-transition);
+  will-change: backdrop-filter, transform;
 }
 
 .glass:hover {

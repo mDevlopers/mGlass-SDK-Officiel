@@ -1,0 +1,87 @@
+/* ============================================
+   mGlass SDK — Liquid Extras v1.2.0
+   Textural Effects & Mesh Gradients
+   ============================================ */
+
+/* ── 1. Noise / Grain Texture ── */
+.glass-noise {
+  position: relative;
+}
+
+.glass-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ── 2. Mesh Backgrounds ── */
+.glass-mesh-1 {
+  background-color: #0d0221;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(202,100%,50%,0.3) 0, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(280,100%,50%,0.3) 0, transparent 50%);
+}
+
+.glass-mesh-2 {
+  background-color: #1a1a2e;
+  background-image:
+    radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0, transparent 50%);
+}
+
+/* ── 3. Glow Shapes ── */
+.glass-glow-blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--glass-accent);
+  filter: blur(80px);
+  border-radius: 50%;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── 4. Frosted Textures ── */
+.glass-texture-rough {
+  backdrop-filter: blur(var(--glass-blur)) contrast(1.2) saturate(1.1);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) contrast(1.2) saturate(1.1);
+}
+
+/* ── 5. Border Glows ── */
+.glass-border-glow {
+  position: relative;
+}
+
+.glass-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--glass-accent-rgb), 0.5),
+    transparent 40%,
+    transparent 60%,
+    rgba(var(--glass-accent-rgb), 0.3)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--glass-transition);
+}
+
+.glass-border-glow:hover::before {
+  opacity: 1;
+}

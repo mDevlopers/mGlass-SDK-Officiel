@@ -92,6 +92,11 @@
   --glass-z-modal-backdrop: 400;
   --glass-z-modal: 500;
   --glass-z-toast: 600;
+
+  /* ── Extra Tokens for Consistency ── */
+  --glass-shadow-color: rgba(0, 0, 0, 0.08);
+  --glass-overlay-dark: rgba(0, 0, 0, 0.4);
+  --glass-overlay-light: rgba(255, 255, 255, 0.1);
 }
 
 /* ── Global Reset ── */
@@ -149,8 +154,25 @@ a:hover {
 
 /* ── Selection ── */
 ::selection {
-  background: rgba(var(--glass-accent-rgb), 0.25);
-  color: inherit;
+  background: var(--glass-accent);
+  color: #fff;
+}
+
+/* ── Focus States ── */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--glass-accent);
+  outline-offset: 2px;
+  border-radius: inherit;
+}
+
+/* ── Scrollbar (Modern) ── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 /* ── Scrollbar (WebKit) ── */

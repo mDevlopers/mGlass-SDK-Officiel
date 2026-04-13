@@ -1,7 +1,7 @@
 {
   "name": "mglass-sdk",
-  "version": "0.5.0",
-  "description": "Le mGlass SDK utilisé dans mAI.",
+  "version": "1.0.0",
+  "description": "Le mGlass SDK",
   "main": "dist/mglass.css",
   "style": "dist/mglass.css",
   "files": [

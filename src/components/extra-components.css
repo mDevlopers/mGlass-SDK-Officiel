@@ -1,0 +1,549 @@
+/* ============================================
+   mGlass SDK — Extra Components v1.1.0
+   30 New Premium Glass UI Components
+   ============================================ */
+
+/* ── 1. Accordion ── */
+.glass-accordion {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.glass-accordion-item {
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-accordion-item:last-child {
+  border-bottom: none;
+}
+
+.glass-accordion-header {
+  width: 100%;
+  padding: var(--glass-space-md) var(--glass-space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  color: var(--glass-text-primary);
+  font-weight: var(--glass-font-weight-semibold);
+  cursor: pointer;
+  transition: background var(--glass-transition);
+}
+
+.glass-accordion-header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.glass-accordion-content {
+  padding: 0 var(--glass-space-lg);
+  max-height: 0;
+  overflow: hidden;
+  transition: all var(--glass-transition-slow);
+  color: var(--glass-text-secondary);
+  font-size: var(--glass-font-size-sm);
+}
+
+.glass-accordion-item.open .glass-accordion-content {
+  padding: var(--glass-space-md) var(--glass-space-lg);
+  max-height: 1000px;
+}
+
+/* ── 2. Alert (Inline) ── */
+.glass-alert {
+  padding: var(--glass-space-md) var(--glass-space-lg);
+  border-radius: var(--glass-radius-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--glass-space-md);
+  margin-bottom: var(--glass-space-md);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(var(--glass-blur-light));
+}
+
+.glass-alert-info { border-left: 4px solid var(--glass-info); color: var(--glass-info); }
+.glass-alert-success { border-left: 4px solid var(--glass-success); color: var(--glass-success); }
+.glass-alert-warning { border-left: 4px solid var(--glass-warning); color: var(--glass-warning); }
+.glass-alert-danger { border-left: 4px solid var(--glass-danger); color: var(--glass-danger); }
+
+/* ── 3. Breadcrumb (Advanced) ── */
+.glass-breadcrumb-advanced {
+  display: flex;
+  align-items: center;
+  padding: var(--glass-space-sm) var(--glass-space-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-full);
+}
+
+.glass-breadcrumb-advanced span {
+  display: flex;
+  align-items: center;
+}
+
+.glass-breadcrumb-advanced span:not(:last-child)::after {
+  content: '→';
+  margin: 0 var(--glass-space-sm);
+  color: var(--glass-text-tertiary);
+  font-size: 0.8em;
+}
+
+/* ── 4. Calendar ── */
+.glass-calendar {
+  width: 100%;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  padding: var(--glass-space-md);
+}
+
+.glass-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--glass-space-md);
+}
+
+.glass-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.glass-calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: var(--glass-font-size-xs);
+}
+
+.glass-calendar-day:hover { background: rgba(255, 255, 255, 0.1); }
+.glass-calendar-day.active { background: var(--glass-accent); color: white; }
+
+/* ── 5. Carousel ── */
+.glass-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--glass-radius);
+}
+
+.glass-carousel-inner {
+  display: flex;
+  transition: transform var(--glass-transition-slow);
+}
+
+.glass-carousel-item {
+  min-width: 100%;
+  aspect-ratio: 16/9;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── 6. Code Block ── */
+.glass-code {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-sm);
+  padding: var(--glass-space-md);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85em;
+  color: #a5d6ff;
+  overflow-x: auto;
+}
+
+/* ── 7. Context Menu ── */
+.glass-context-menu {
+  position: absolute;
+  min-width: 180px;
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(25px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-sm);
+  padding: 6px;
+  box-shadow: var(--glass-shadow-elevated);
+  z-index: var(--glass-z-dropdown);
+}
+
+.glass-context-item {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--glass-text-secondary);
+}
+
+.glass-context-item:hover {
+  background: var(--glass-accent);
+  color: white;
+}
+
+/* ── 8. Date Picker ── */
+.glass-datepicker-input {
+  position: relative;
+}
+
+.glass-datepicker-calendar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  z-index: var(--glass-z-dropdown);
+  display: none;
+}
+
+.glass-datepicker-input:focus-within .glass-datepicker-calendar {
+  display: block;
+}
+
+/* ── 9. Drawer ── */
+.glass-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px);
+  border-left: 1px solid var(--glass-border);
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: var(--glass-z-modal);
+  padding: var(--glass-space-xl);
+}
+
+.glass-drawer.open { right: 0; }
+
+/* ── 10. Dropdown (Advanced) ── */
+.glass-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.glass-dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  padding: var(--glass-space-sm);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--glass-transition);
+}
+
+.glass-dropdown:hover .glass-dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ── 11. Empty State ── */
+.glass-empty {
+  text-align: center;
+  padding: var(--glass-space-3xl);
+  opacity: 0.6;
+}
+
+.glass-empty-icon { font-size: 3rem; margin-bottom: var(--glass-space-md); display: block; }
+
+/* ── 12. File Upload ── */
+.glass-upload {
+  border: 2px dashed var(--glass-border);
+  border-radius: var(--glass-radius);
+  padding: var(--glass-space-2xl);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--glass-transition);
+}
+
+.glass-upload:hover { border-color: var(--glass-accent); background: rgba(255, 255, 255, 0.03); }
+
+/* ── 13. Footer ── */
+.glass-footer {
+  padding: var(--glass-space-2xl) 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--glass-border);
+  margin-top: var(--glass-space-3xl);
+}
+
+/* ── 14. Kbd ── */
+.glass-kbd {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
+  border-bottom: 3px solid var(--glass-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: monospace;
+  font-size: 0.85em;
+}
+
+/* ── 15. List Group ── */
+.glass-list {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  overflow: hidden;
+}
+
+.glass-list-item {
+  padding: var(--glass-space-md) var(--glass-space-lg);
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.glass-list-item:hover { background: rgba(255, 255, 255, 0.05); }
+
+/* ── 16. Menu (Vertical) ── */
+.glass-menu-v {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.glass-menu-item {
+  padding: 10px 16px;
+  border-radius: var(--glass-radius-sm);
+  cursor: pointer;
+}
+
+.glass-menu-item.active { background: var(--glass-accent); color: white; }
+
+/* ── 17. Pagination ── */
+.glass-pagination {
+  display: flex;
+  gap: 8px;
+}
+
+.glass-page {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.glass-page.active { background: var(--glass-accent); color: white; border-color: transparent; }
+
+/* ── 18. Popover ── */
+.glass-popover {
+  padding: var(--glass-space-md);
+  border-radius: var(--glass-radius);
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-elevated);
+}
+
+/* ── 19. Pricing Table ── */
+.glass-pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--glass-space-xl);
+}
+
+.glass-package {
+  padding: var(--glass-space-2xl);
+  text-align: center;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.glass-package-price { font-size: 2.5rem; font-weight: 800; margin: var(--glass-space-lg) 0; }
+
+/* ── 20. Radio Group ── */
+.glass-radio-group { display: flex; flex-direction: column; gap: 12px; }
+.glass-radio { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.glass-radio input { display: none; }
+.glass-radio-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--glass-border);
+  border-radius: 50%;
+  position: relative;
+}
+
+.glass-radio input:checked + .glass-radio-circle { border-color: var(--glass-accent); }
+.glass-radio input:checked + .glass-radio-circle::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background: var(--glass-accent);
+  border-radius: 50%;
+}
+
+/* ── 21. Rating ── */
+.glass-rating { display: flex; gap: 4px; color: var(--glass-warning); cursor: pointer; font-size: 1.25rem; }
+
+/* ── 22. Slider (Range) ── */
+.glass-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--glass-radius-full);
+}
+
+.glass-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--glass-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+/* ── 23. Spinner (Variants) ── */
+.glass-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--glass-accent);
+  border-radius: 50%;
+  animation: glass-spin 1s linear infinite;
+}
+
+.glass-spinner-dots { display: flex; gap: 4px; }
+.glass-spinner-dots div {
+  width: 10px;
+  height: 10px;
+  background: var(--glass-accent);
+  border-radius: 50%;
+  animation: glass-pulse 1.2s infinite ease-in-out;
+}
+
+/* ── 24. Statistic (Advanced) ── */
+.glass-stat-v2 { display: flex; align-items: center; gap: var(--glass-space-lg); }
+.glass-stat-v2-icon { font-size: 2rem; color: var(--glass-accent); }
+.glass-stat-v2-val { font-size: 1.5rem; font-weight: 700; }
+
+/* ── 25. Stepper ── */
+.glass-stepper { display: flex; justify-content: space-between; position: relative; }
+.glass-stepper::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--glass-border);
+  z-index: 0;
+}
+
+.glass-step {
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  background: var(--glass-bg-solid);
+  border: 2px solid var(--glass-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-step.active { border-color: var(--glass-accent); background: var(--glass-accent); color: white; }
+
+/* ── 26. Table (Glass) ── */
+.glass-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--glass-radius);
+  overflow: hidden;
+}
+
+.glass-table th, .glass-table td {
+  padding: var(--glass-space-md) var(--glass-space-lg);
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-table th { background: rgba(255, 255, 255, 0.05); font-weight: 600; }
+
+/* ── 27. Tag (Closable) ── */
+.glass-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-full);
+  font-size: 0.85em;
+}
+
+.glass-tag-close { cursor: pointer; opacity: 0.6; }
+
+/* ── 28. Timeline ── */
+.glass-timeline { position: relative; padding-left: 30px; }
+.glass-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--glass-border);
+}
+
+.glass-timeline-item { position: relative; margin-bottom: 24px; }
+.glass-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background: var(--glass-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(var(--glass-accent-rgb), 0.2);
+}
+
+/* ── 29. Video Player UI ── */
+.glass-video { position: relative; border-radius: var(--glass-radius); overflow: hidden; background: black; }
+.glass-video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ── 30. User Profile Card ── */
+.glass-profile {
+  padding: var(--glass-space-xl);
+  text-align: center;
+}
+
+.glass-profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid var(--glass-border);
+  margin-bottom: var(--glass-space-md);
+}

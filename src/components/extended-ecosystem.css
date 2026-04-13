@@ -1,0 +1,208 @@
+/* ============================================
+   mGlass SDK — Extended Ecosystem v1.4.0
+   The 30 Major Expansion Components
+   ============================================ */
+
+/* ── 1. Business & Productivity (10) ── */
+
+/* Kanban Board */
+.glass-kanban {
+  display: flex;
+  gap: var(--glass-space-lg);
+  overflow-x: auto;
+  padding-bottom: var(--glass-space-md);
+}
+
+.glass-kanban-col {
+  min-width: 300px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--glass-radius);
+  padding: var(--glass-space-md);
+}
+
+/* Advanced Calendar Pro */
+.glass-calendar-pro {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--glass-radius);
+  overflow: hidden;
+}
+
+.glass-calendar-header {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Result Pages */
+.glass-result {
+  text-align: center;
+  padding: var(--glass-space-3xl) var(--glass-space-xl);
+}
+
+.glass-result-icon {
+  font-size: 4rem;
+  margin-bottom: var(--glass-space-lg);
+}
+
+/* ── 2. Commerce & Profile (8) ── */
+
+/* Credit Card UI */
+.glass-credit-card {
+  width: 340px;
+  height: 210px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.glass-card-chip {
+  width: 50px;
+  height: 40px;
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+/* Shopping Cart List */
+.glass-cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Avatar Status Ring */
+.glass-avatar-status {
+  position: relative;
+}
+
+.glass-avatar-status::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #1a1a2e;
+}
+
+.glass-status-online::after { background: var(--glass-success); }
+.glass-status-away::after { background: var(--glass-warning); }
+
+/* ── 3. Utility & Navigation (12) ── */
+
+/* Video Hero Overlay */
+.glass-video-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+/* Sidebar Push */
+.glass-sidebar-push {
+  transition: transform 0.3s;
+}
+
+/* Pill & Underline Tabs */
+.glass-tabs-pill {
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px;
+  border-radius: var(--glass-radius-full);
+}
+
+.glass-tabs-pill .glass-tab {
+  border-radius: var(--glass-radius-full);
+}
+
+.glass-tabs-underline {
+  display: flex;
+  border-bottom: 2px solid var(--glass-border);
+}
+
+.glass-tabs-underline .glass-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  border-radius: 0;
+}
+
+.glass-tabs-underline .glass-tab.active {
+  border-bottom-color: var(--glass-accent);
+}
+
+/* Auto-closing Alert with Progress */
+.glass-alert-timed {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.glass-alert-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  transform-origin: left;
+  animation: glass-timer 5s linear forwards;
+}
+
+@keyframes glass-timer {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+/* Wave Progress */
+.glass-progress-wave {
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-progress-wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: glass-wave 2s infinite linear;
+}
+
+@keyframes glass-wave {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+/* Volume Slider Vertical */
+.glass-volume-v {
+  width: 40px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.glass-volume-fill {
+  background: var(--glass-accent);
+  transition: height 0.2s;
+}

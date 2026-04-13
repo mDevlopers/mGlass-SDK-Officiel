@@ -1,0 +1,82 @@
+/* ============================================
+   mGlass SDK — Media Extra v1.2.0
+   AvatarStack, ProfileHeader, Testimonial Grid
+   ============================================ */
+
+/* ── 1. Avatar Stack ── */
+.glass-avatar-stack {
+  display: flex;
+  padding-left: 10px;
+}
+
+.glass-avatar-stack .glass-avatar {
+  margin-left: -12px;
+  border: 3px solid #1a1a2e;
+  transition: transform 0.2s;
+}
+
+.glass-avatar-stack .glass-avatar:hover {
+  transform: translateY(-5px);
+  z-index: 10;
+}
+
+/* ── 2. Profile Header ── */
+.glass-profile-banner {
+  height: 200px;
+  background: var(--glass-mesh-1);
+  border-radius: var(--glass-radius) var(--glass-radius) 0 0;
+  position: relative;
+}
+
+.glass-profile-content {
+  padding: 0 var(--glass-space-xl) var(--glass-space-xl);
+  margin-top: -50px;
+  position: relative;
+}
+
+.glass-profile-avatar-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid #1a1a2e;
+  background: #333;
+  margin-bottom: 15px;
+}
+
+/* ── 3. Glass Icon Borders ── */
+.glass-icon-box {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── 4. Image Masking ── */
+.glass-img-mask {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--glass-radius);
+}
+
+.glass-img-mask::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ── 5. Skeleton Advanced ── */
+.glass-skeleton-profile {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.glass-skeleton-circle-lg { width: 64px; height: 64px; border-radius: 50%; }
+.glass-skeleton-line-long { width: 200px; height: 12px; border-radius: 6px; }
+.glass-skeleton-line-short { width: 120px; height: 10px; border-radius: 5px; }

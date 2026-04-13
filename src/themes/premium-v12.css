@@ -1,0 +1,117 @@
+/* ============================================
+   mGlass SDK — Premium Themes v1.2.0
+   11 New Art-Directed High-Performance Themes
+   ============================================ */
+
+/* ── 1. Nordic (Cold & Minimal) ── */
+[data-theme="nordic"],
+.glass-theme-nordic {
+  --glass-accent: #8e9eab;
+  --glass-accent-rgb: 142, 158, 171;
+  --glass-bg-page: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+  --glass-bg: rgba(255, 255, 255, 0.5);
+  --glass-text-primary: #2c3e50;
+  --glass-text-secondary: #576574;
+  --glass-border: rgba(0,0,0,0.08);
+  --glass-opacity: 0.6;
+}
+
+/* ── 2. Synthwave (Retro Future) ── */
+[data-theme="synthwave"],
+.glass-theme-synthwave {
+  --glass-accent: #f97d0b;
+  --glass-accent-rgb: 249, 125, 11;
+  --glass-bg-page: linear-gradient(135deg, #2b1055 0%, #7597de 100%);
+  --glass-text-primary: #ff71ce;
+  --glass-border: rgba(1, 205, 254, 0.3);
+  --glass-shadow: 0 0 30px rgba(5, 255, 161, 0.15);
+}
+
+/* ── 3. True Black (OLED Optimized) ── */
+[data-theme="trueblack"],
+.glass-theme-trueblack {
+  --glass-accent: #fff;
+  --glass-accent-rgb: 255, 255, 255;
+  --glass-bg-page: #000;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-text-primary: #fff;
+  --glass-opacity: 0.08;
+}
+
+/* ── 4. Bio-Luminescence (Neon Green) ── */
+[data-theme="bio"],
+.glass-theme-bio {
+  --glass-accent: #2ecc71;
+  --glass-accent-rgb: 46, 204, 113;
+  --glass-bg-page: #01161e;
+  --glass-text-primary: #00ffcc;
+  --glass-border: rgba(46, 204, 113, 0.2);
+}
+
+/* ── 5. Matcha (Earthy Green) ── */
+[data-theme="matcha"],
+.glass-theme-matcha {
+  --glass-accent: #8fbc8f;
+  --glass-accent-rgb: 143, 188, 143;
+  --glass-bg-page: #f0fff0;
+  --glass-text-primary: #2f4f4f;
+  --glass-border: rgba(143, 188, 143, 0.3);
+  --glass-opacity: 0.5;
+}
+
+/* ── 6. Drifter (Industrial Gray) ── */
+[data-theme="drifter"],
+.glass-theme-drifter {
+  --glass-accent: #bdc3c7;
+  --glass-bg-page: #2c3e50;
+  --glass-text-primary: #ecf0f1;
+  --glass-border: rgba(255,255,255,0.05);
+}
+
+/* ── 7. Rose Quartz (Soft Pink) ── */
+[data-theme="rose"],
+.glass-theme-rose {
+  --glass-accent: #ff85a1;
+  --glass-bg-page: #fce4ec;
+  --glass-text-primary: #880e4f;
+  --glass-border: rgba(255, 133, 161, 0.2);
+}
+
+/* ── 8. Obsidian (Deep Stealth) ── */
+[data-theme="obsidian"],
+.glass-theme-obsidian {
+  --glass-accent: #5e35b1;
+  --glass-bg-page: #121212;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 10px 50px rgba(0,0,0,0.8);
+}
+
+/* ── 9. CyberNet (Electric Blue) ── */
+[data-theme="cybernet"],
+.glass-theme-cybernet {
+  --glass-accent: #0070f3;
+  --glass-bg-page: #000;
+  --glass-text-primary: #0070f3;
+  --glass-border: rgba(0, 112, 243, 0.4);
+}
+
+/* ── 10. Vintage (Classic Sepia) ── */
+[data-theme="vintage"],
+.glass-theme-vintage {
+  --glass-accent: #8b4513;
+  --glass-bg-page: #f5f5dc;
+  --glass-text-primary: #5d4037;
+  --glass-border: rgba(139, 69, 19, 0.2);
+  --glass-opacity: 0.6;
+}
+
+/* ── 11. Moonlight (Silver Night) ── */
+[data-theme="moonlight"],
+.glass-theme-moonlight {
+  --glass-accent: #ecf0f1;
+  --glass-bg-page: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+  --glass-text-primary: #ecf0f1;
+  --glass-border: rgba(236, 240, 241, 0.15);
+}

@@ -1,0 +1,63 @@
+/* ============================================
+   mGlass SDK — Layout v1.2.0
+   Systemic Containers & Spacing
+   ============================================ */
+
+/* ── Container System ── */
+.glass-section {
+  padding: var(--glass-space-3xl) 0;
+  position: relative;
+}
+
+.glass-section-sm { padding: var(--glass-space-xl) 0; }
+.glass-section-lg { padding: var(--glass-space-3xl) 0; }
+
+/* ── Advanced Flex ── */
+.glass-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Grid Auto-fit ── */
+.glass-grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--glass-space-lg);
+}
+
+.glass-grid-auto-sm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--glass-space-md);
+}
+
+/* ── Aspect Ratio Box ── */
+.glass-aspect-16-9 { aspect-ratio: 16 / 9; }
+.glass-aspect-1-1 { aspect-ratio: 1 / 1; }
+.glass-aspect-4-3 { aspect-ratio: 4 / 3; }
+
+/* ── Overflow Handling ── */
+.glass-overflow-hidden { overflow: hidden; }
+.glass-scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.glass-scroll-y { overflow-y: auto; }
+
+/* ── Safe Area (for mobile) ── */
+.glass-p-safe {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ── Sticky Positioning ── */
+.glass-sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: var(--glass-z-sticky);
+}

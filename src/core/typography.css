@@ -1,0 +1,81 @@
+/* ============================================
+   mGlass SDK — Typography v1.2.0
+   Advanced Text Handling & Styles
+   ============================================ */
+
+/* ── Fluid Typography ── */
+:root {
+  --glass-text-fluid-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+  --glass-text-fluid-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+  --glass-text-fluid-lg: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+  --glass-text-fluid-xl: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+  --glass-text-fluid-2xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+  --glass-text-fluid-3xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+}
+
+/* ── Typography Utilities ── */
+
+.glass-text-gradient {
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.4) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-text-glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.glass-text-spaced {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.glass-text-italic { font-style: italic; }
+
+.glass-text-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.glass-text-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--glass-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--glass-transition);
+}
+
+.glass-text-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ── Content Blocks ── */
+.glass-lead {
+  font-size: var(--glass-text-fluid-lg);
+  color: var(--glass-text-secondary);
+  line-height: 1.6;
+}
+
+.glass-quote {
+  padding-left: var(--glass-space-lg);
+  border-left: 2px solid var(--glass-border);
+  font-style: italic;
+  color: var(--glass-text-secondary);
+  margin: var(--glass-space-lg) 0;
+}
+
+/* ── Paragraphs ── */
+p {
+  margin-bottom: var(--glass-space-md);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,128 @@
+/* ============================================
+   mGlass SDK — Extra Themes v1.1.0
+   10 New Premium Theme Variations
+   ============================================ */
+
+/* ── 1. Cyberpunk (Neon Vibrant) ── */
+[data-theme="cyberpunk"],
+.glass-theme-cyberpunk {
+  --glass-accent: #ff00ff;
+  --glass-accent-rgb: 255, 0, 255;
+  --glass-accent-hover: #00ffff;
+  --glass-bg-page: linear-gradient(135deg, #0d0221 0%, #241734 50%, #0d0221 100%);
+  --glass-border: rgba(0, 255, 255, 0.2);
+  --glass-border-hover: rgba(255, 0, 255, 0.4);
+  --glass-shadow: 0 8px 32px rgba(255, 0, 255, 0.15);
+  --glass-text-primary: #00ffff;
+  --glass-text-secondary: rgba(0, 255, 255, 0.7);
+  --glass-opacity: 0.15;
+}
+
+/* ── 2. Emerald (Lush Green) ── */
+[data-theme="emerald"],
+.glass-theme-emerald {
+  --glass-accent: #10b981;
+  --glass-accent-rgb: 16, 185, 129;
+  --glass-accent-hover: #34d399;
+  --glass-bg-page: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+  --glass-border: rgba(16, 185, 129, 0.2);
+  --glass-text-primary: #ecfdf5;
+  --glass-text-secondary: rgba(236, 253, 245, 0.7);
+}
+
+/* ── 3. Amethyst (Deep Purple) ── */
+[data-theme="amethyst"],
+.glass-theme-amethyst {
+  --glass-accent: #8b5cf6;
+  --glass-accent-rgb: 139, 92, 246;
+  --glass-accent-hover: #a78bfa;
+  --glass-bg-page: linear-gradient(135deg, #2e1065 0%, #4c1d95 50%, #5b21b6 100%);
+  --glass-border: rgba(139, 92, 246, 0.2);
+  --glass-text-primary: #f5f3ff;
+  --glass-text-secondary: rgba(245, 243, 255, 0.7);
+}
+
+/* ── 4. Sapphire (Regal Blue) ── */
+[data-theme="sapphire"],
+.glass-theme-sapphire {
+  --glass-accent: #3b82f6;
+  --glass-accent-rgb: 59, 130, 246;
+  --glass-accent-hover: #60a5fa;
+  --glass-bg-page: linear-gradient(135deg, #172554 0%, #1e3a8a 50%, #1e40af 100%);
+  --glass-border: rgba(59, 130, 246, 0.2);
+  --glass-text-primary: #eff6ff;
+  --glass-text-secondary: rgba(239, 246, 255, 0.7);
+}
+
+/* ── 5. Ruby (Crimson Passion) ── */
+[data-theme="ruby"],
+.glass-theme-ruby {
+  --glass-accent: #ef4444;
+  --glass-accent-rgb: 239, 68, 68;
+  --glass-accent-hover: #f87171;
+  --glass-bg-page: linear-gradient(135deg, #450a0a 0%, #7f1d1d 50%, #991b1b 100%);
+  --glass-border: rgba(239, 68, 68, 0.2);
+  --glass-text-primary: #fef2f2;
+  --glass-text-secondary: rgba(254, 242, 242, 0.7);
+}
+
+/* ── 6. Gold (Luxury & Elegance) ── */
+[data-theme="gold"],
+.glass-theme-gold {
+  --glass-accent: #eab308;
+  --glass-accent-rgb: 234, 179, 8;
+  --glass-accent-hover: #facc15;
+  --glass-bg-page: linear-gradient(135deg, #422006 0%, #713f12 50%, #854d0e 100%);
+  --glass-border: rgba(234, 179, 8, 0.3);
+  --glass-text-primary: #fefce8;
+  --glass-text-secondary: rgba(254, 252, 232, 0.7);
+  --glass-shadow: 0 8px 32px rgba(234, 179, 8, 0.15);
+}
+
+/* ── 7. Platinum (Modern Silver) ── */
+[data-theme="platinum"],
+.glass-theme-platinum {
+  --glass-accent: #94a3b8;
+  --glass-accent-rgb: 148, 163, 184;
+  --glass-accent-hover: #cbd5e1;
+  --glass-bg-page: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  --glass-border: rgba(148, 163, 184, 0.2);
+  --glass-text-primary: #f8fafc;
+  --glass-text-secondary: rgba(248, 250, 252, 0.7);
+}
+
+/* ── 8. Lavender (Soft Pastel) ── */
+[data-theme="lavender"],
+.glass-theme-lavender {
+  --glass-accent: #d8b4fe;
+  --glass-accent-rgb: 216, 180, 254;
+  --glass-accent-hover: #e9d5ff;
+  --glass-bg-page: linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%);
+  --glass-border: rgba(216, 180, 254, 0.2);
+  --glass-text-primary: #faf5ff;
+  --glass-text-secondary: rgba(250, 245, 255, 0.7);
+}
+
+/* ── 9. Mint (Fresh & Clean) ── */
+[data-theme="mint"],
+.glass-theme-mint {
+  --glass-accent: #6ee7b7;
+  --glass-accent-rgb: 110, 231, 183;
+  --glass-accent-hover: #a7f3d0;
+  --glass-bg-page: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #059669 100%);
+  --glass-border: rgba(110, 231, 183, 0.2);
+  --glass-text-primary: #f0fdf4;
+  --glass-text-secondary: rgba(240, 253, 244, 0.7);
+}
+
+/* ── 10. Terra (Earth & Warmth) ── */
+[data-theme="terra"],
+.glass-theme-terra {
+  --glass-accent: #f97316;
+  --glass-accent-rgb: 249, 115, 22;
+  --glass-accent-hover: #fb923c;
+  --glass-bg-page: linear-gradient(135deg, #431407 0%, #7c2d12 50%, #9a3412 100%);
+  --glass-border: rgba(249, 115, 22, 0.2);
+  --glass-text-primary: #fff7ed;
+  --glass-text-secondary: rgba(255, 247, 237, 0.7);
+}

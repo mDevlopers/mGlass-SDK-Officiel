@@ -1,0 +1,104 @@
+/* ============================================
+   mGlass SDK — Layout Extra v1.2.0
+   Hero, Sidebar, Testimonials, FAQ
+   ============================================ */
+
+/* ── 1. Hero Section ── */
+.glass-hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--glass-space-3xl) var(--glass-space-xl);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-hero-title {
+  font-size: var(--glass-text-fluid-3xl);
+  font-weight: 800;
+  margin-bottom: var(--glass-space-md);
+  color: #fff;
+}
+
+.glass-hero-subtitle {
+  font-size: var(--glass-text-fluid-lg);
+  color: var(--glass-text-secondary);
+  max-width: 680px;
+  margin-bottom: var(--glass-space-xl);
+}
+
+/* ── 2. Sidebar ── */
+.glass-sidebar {
+  width: 280px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(30px);
+  border-right: 1px solid var(--glass-border);
+  padding: var(--glass-space-xl);
+  z-index: var(--glass-z-navbar);
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-sidebar-header { margin-bottom: var(--glass-space-2xl); }
+.glass-sidebar-footer { margin-top: auto; }
+
+/* ── 3. Testimonial ── */
+.glass-testimonial {
+  padding: var(--glass-space-xl);
+  position: relative;
+}
+
+.glass-testimonial-quote {
+  font-size: var(--glass-font-size-lg);
+  line-height: 1.6;
+  margin-bottom: var(--glass-space-lg);
+  font-style: italic;
+}
+
+.glass-testimonial-user {
+  display: flex;
+  align-items: center;
+  gap: var(--glass-space-md);
+}
+
+/* ── 4. FAQ / Accordion Advanced ── */
+.glass-faq {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.glass-faq-item {
+  margin-bottom: var(--glass-space-md);
+}
+
+/* ── 5. Feature Grid ── */
+.glass-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--glass-space-lg);
+}
+
+.glass-feature-item {
+  padding: var(--glass-space-xl);
+  text-align: center;
+}
+
+.glass-feature-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(var(--glass-accent-rgb), 0.1);
+  color: var(--glass-accent);
+  border-radius: var(--glass-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto var(--glass-space-lg);
+}
