@@ -4,7 +4,7 @@
  * (c) 2026 mCompany — MIT License
  */
 
-/* ── core\base.css ── */
+/* ── core/base.css ── */
 /* ============================================
    mGlass SDK — Base System v1.0.0
    Liquid Glass Design System
@@ -325,7 +325,7 @@ a:hover {
 }
 
 
-/* ── core\glass.css ── */
+/* ── core/glass.css ── */
 /* ============================================
    mGlass SDK — Glass Core v1.0.0
    Liquid Glass Effect System
@@ -547,7 +547,7 @@ a:hover {
 }
 
 
-/* ── core\layout.css ── */
+/* ── core/layout.css ── */
 /* ============================================
    mGlass SDK — Layout v1.2.0
    Systemic Containers & Spacing
@@ -613,7 +613,7 @@ a:hover {
 }
 
 
-/* ── core\typography.css ── */
+/* ── core/typography.css ── */
 /* ============================================
    mGlass SDK — Typography v1.2.0
    Advanced Text Handling & Styles
@@ -697,7 +697,7 @@ p:last-child {
 }
 
 
-/* ── animations\base-animations.css ── */
+/* ── animations/base-animations.css ── */
 /* ============================================
    mGlass SDK — Animations v1.0.0
    Smooth Micro-Interactions & Effects
@@ -1043,7 +1043,7 @@ p:last-child {
 }
 
 
-/* ── animations\extra-animations.css ── */
+/* ── animations/extra-animations.css ── */
 /* ============================================
    mGlass SDK — Extra Animations v1.1.0
    25 New Premium Animations
@@ -1259,7 +1259,7 @@ p:last-child {
 .glass-animate-glitch { animation: glass-glitch-subtle 0.3s ease-in-out infinite; }
 
 
-/* ── components\buttons.css ── */
+/* ── components/buttons.css ── */
 /* ============================================
    mGlass SDK — Buttons v1.0.0
    Glass Button Components
@@ -1559,7 +1559,7 @@ p:last-child {
 }
 
 
-/* ── components\cards.css ── */
+/* ── components/cards.css ── */
 /* ============================================
    mGlass SDK — Cards v1.0.0
    Glass Card Components
@@ -1825,7 +1825,7 @@ p:last-child {
 }
 
 
-/* ── components\core-components.css ── */
+/* ── components/core-components.css ── */
 /* ============================================
    mGlass SDK — Components v1.0.0
    Modals, Inputs, Badges, Tooltips, Toasts
@@ -2409,7 +2409,7 @@ p:last-child {
 }
 
 
-/* ── components\data-extra.css ── */
+/* ── components/data-extra.css ── */
 /* ============================================
    mGlass SDK — Data Extra v1.2.0
    ActivityFeed, Progress Circles, Advanced Stats
@@ -2526,7 +2526,7 @@ p:last-child {
 }
 
 
-/* ── components\extended-ecosystem.css ── */
+/* ── components/extended-ecosystem.css ── */
 /* ============================================
    mGlass SDK — Extended Ecosystem v1.4.0
    The 30 Major Expansion Components
@@ -2549,6 +2549,33 @@ p:last-child {
   padding: var(--glass-space-md);
 }
 
+/* Time Picker */
+.glass-time-picker {
+  display: flex;
+  align-items: center;
+  gap: var(--glass-space-sm);
+  background: rgba(255, 255, 255, 0.05);
+  padding: var(--glass-space-sm) var(--glass-space-md);
+  border-radius: var(--glass-radius-full);
+  border: 1px solid var(--glass-border);
+  width: fit-content;
+}
+.glass-time-picker select {
+  background: transparent;
+  border: none;
+  color: var(--glass-text-primary);
+  font-size: var(--glass-font-size-lg);
+  font-weight: var(--glass-font-weight-medium);
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.glass-time-picker-separator {
+  font-size: var(--glass-font-size-lg);
+  font-weight: var(--glass-font-weight-bold);
+  color: var(--glass-text-tertiary);
+}
+
 /* Advanced Calendar Pro */
 .glass-calendar-pro {
   background: rgba(255, 255, 255, 0.05);
@@ -2563,6 +2590,32 @@ p:last-child {
   justify-content: space-between;
 }
 
+/* Stat Trend */
+.glass-stat-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--glass-space-xs);
+  padding: 4px 8px;
+  border-radius: var(--glass-radius-full);
+  font-size: var(--glass-font-size-sm);
+  font-weight: var(--glass-font-weight-medium);
+}
+.glass-stat-trend.positive {
+  background: rgba(var(--glass-success-rgb), 0.1);
+  color: var(--glass-success);
+  border: 1px solid rgba(var(--glass-success-rgb), 0.2);
+}
+.glass-stat-trend.negative {
+  background: rgba(var(--glass-danger-rgb), 0.1);
+  color: var(--glass-danger);
+  border: 1px solid rgba(var(--glass-danger-rgb), 0.2);
+}
+.glass-stat-trend.neutral {
+  background: rgba(128, 128, 128, 0.1);
+  color: var(--glass-text-secondary);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
 /* Result Pages */
 .glass-result {
   text-align: center;
@@ -2575,6 +2628,26 @@ p:last-child {
 }
 
 /* ── 2. Commerce & Profile (8) ── */
+
+/* Product Carousel */
+.glass-product-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--glass-space-md);
+  padding: var(--glass-space-sm);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.glass-product-carousel::-webkit-scrollbar { display: none; }
+.glass-product-carousel-item {
+  flex: 0 0 280px;
+  scroll-snap-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--glass-radius);
+  padding: var(--glass-space-md);
+  box-shadow: var(--glass-shadow);
+}
+
 
 /* Credit Card UI */
 .glass-credit-card {
@@ -2737,7 +2810,7 @@ p:last-child {
 }
 
 
-/* ── components\extra-components.css ── */
+/* ── components/extra-components.css ── */
 /* ============================================
    mGlass SDK — Extra Components v1.1.0
    30 New Premium Glass UI Components
@@ -3289,7 +3362,7 @@ p:last-child {
 }
 
 
-/* ── components\feedback-extra.css ── */
+/* ── components/feedback-extra.css ── */
 /* ============================================
    mGlass SDK — Feedback Extra v1.2.0
    Banner, Snackbar, Popover, Advanced Tooltips
@@ -3427,7 +3500,7 @@ p:last-child {
 }
 
 
-/* ── components\forms-extra.css ── */
+/* ── components/forms-extra.css ── */
 /* ============================================
    mGlass SDK — Forms Extra v1.2.0
    Dual Range, Tag Input, MultiSelect, Dropzone
@@ -3553,7 +3626,7 @@ p:last-child {
 }
 
 
-/* ── components\forms-pro.css ── */
+/* ── components/forms-pro.css ── */
 /* ============================================
    mGlass SDK — Forms Pro v1.3.0
    Professional Input Systems
@@ -3736,7 +3809,7 @@ p:last-child {
 }
 
 
-/* ── components\layout-extra.css ── */
+/* ── components/layout-extra.css ── */
 /* ============================================
    mGlass SDK — Layout Extra v1.2.0
    Hero, Sidebar, Testimonials, FAQ
@@ -3843,7 +3916,7 @@ p:last-child {
 }
 
 
-/* ── components\media-extra.css ── */
+/* ── components/media-extra.css ── */
 /* ============================================
    mGlass SDK — Media Extra v1.2.0
    AvatarStack, ProfileHeader, Testimonial Grid
@@ -3928,7 +4001,7 @@ p:last-child {
 .glass-skeleton-line-short { width: 120px; height: 10px; border-radius: 5px; }
 
 
-/* ── components\navigation-extra.css ── */
+/* ── components/navigation-extra.css ── */
 /* ============================================
    mGlass SDK — Navigation Extra v1.2.0
    Dock, Search, MegaMenu, Advanced Context
@@ -4063,7 +4136,7 @@ p:last-child {
 .glass-back-to-top:hover { transform: translateY(-5px); }
 
 
-/* ── components\navigation.css ── */
+/* ── components/navigation.css ── */
 /* ============================================
    mGlass SDK — Navbar v1.0.0
    Glass Navigation Components
@@ -4360,7 +4433,7 @@ p:last-child {
 }
 
 
-/* ── components\ultra-components.css ── */
+/* ── components/ultra-components.css ── */
 /* ============================================
    mGlass SDK — Ultra Components v1.3.0
    Massive Expansion — 40 Premium Components
@@ -4618,7 +4691,7 @@ p:last-child {
 }
 
 
-/* ── effects\liquid-extras.css ── */
+/* ── effects/liquid-extras.css ── */
 /* ============================================
    mGlass SDK — Liquid Extras v1.2.0
    Textural Effects & Mesh Gradients
@@ -4708,7 +4781,7 @@ p:last-child {
 }
 
 
-/* ── themes\extra-themes.css ── */
+/* ── themes/extra-themes.css ── */
 /* ============================================
    mGlass SDK — Extra Themes v1.1.0
    10 New Premium Theme Variations
@@ -4839,7 +4912,7 @@ p:last-child {
 }
 
 
-/* ── themes\premium-v12.css ── */
+/* ── themes/premium-v12.css ── */
 /* ============================================
    mGlass SDK — Premium Themes v1.2.0
    11 New Art-Directed High-Performance Themes
@@ -4959,7 +5032,7 @@ p:last-child {
 }
 
 
-/* ── themes\standard-themes.css ── */
+/* ── themes/standard-themes.css ── */
 /* ============================================
    mGlass SDK — Themes v1.0.0
    Dark Mode & Theme Variations

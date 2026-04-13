@@ -20,6 +20,33 @@
   padding: var(--glass-space-md);
 }
 
+/* Time Picker */
+.glass-time-picker {
+  display: flex;
+  align-items: center;
+  gap: var(--glass-space-sm);
+  background: rgba(255, 255, 255, 0.05);
+  padding: var(--glass-space-sm) var(--glass-space-md);
+  border-radius: var(--glass-radius-full);
+  border: 1px solid var(--glass-border);
+  width: fit-content;
+}
+.glass-time-picker select {
+  background: transparent;
+  border: none;
+  color: var(--glass-text-primary);
+  font-size: var(--glass-font-size-lg);
+  font-weight: var(--glass-font-weight-medium);
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.glass-time-picker-separator {
+  font-size: var(--glass-font-size-lg);
+  font-weight: var(--glass-font-weight-bold);
+  color: var(--glass-text-tertiary);
+}
+
 /* Advanced Calendar Pro */
 .glass-calendar-pro {
   background: rgba(255, 255, 255, 0.05);
@@ -34,6 +61,32 @@
   justify-content: space-between;
 }
 
+/* Stat Trend */
+.glass-stat-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--glass-space-xs);
+  padding: 4px 8px;
+  border-radius: var(--glass-radius-full);
+  font-size: var(--glass-font-size-sm);
+  font-weight: var(--glass-font-weight-medium);
+}
+.glass-stat-trend.positive {
+  background: rgba(var(--glass-success-rgb), 0.1);
+  color: var(--glass-success);
+  border: 1px solid rgba(var(--glass-success-rgb), 0.2);
+}
+.glass-stat-trend.negative {
+  background: rgba(var(--glass-danger-rgb), 0.1);
+  color: var(--glass-danger);
+  border: 1px solid rgba(var(--glass-danger-rgb), 0.2);
+}
+.glass-stat-trend.neutral {
+  background: rgba(128, 128, 128, 0.1);
+  color: var(--glass-text-secondary);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
 /* Result Pages */
 .glass-result {
   text-align: center;
@@ -46,6 +99,26 @@
 }
 
 /* ── 2. Commerce & Profile (8) ── */
+
+/* Product Carousel */
+.glass-product-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--glass-space-md);
+  padding: var(--glass-space-sm);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.glass-product-carousel::-webkit-scrollbar { display: none; }
+.glass-product-carousel-item {
+  flex: 0 0 280px;
+  scroll-snap-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--glass-radius);
+  padding: var(--glass-space-md);
+  box-shadow: var(--glass-shadow);
+}
+
 
 /* Credit Card UI */
 .glass-credit-card {
