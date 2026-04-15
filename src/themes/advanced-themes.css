@@ -1,0 +1,81 @@
+/* ============================================
+   mGlass SDK — Advanced Themes v1.0.0
+   Cyberpunk & Minimalist Themes
+   ============================================ */
+
+/* ── Cyberpunk Theme ── */
+[data-theme="cyberpunk"],
+.glass-theme-cyberpunk {
+  --glass-opacity: 0.15;
+  --glass-opacity-hover: 0.25;
+  --glass-border: rgba(0, 255, 255, 0.4);
+  --glass-border-hover: rgba(255, 0, 255, 0.6);
+  --glass-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 0, 255, 0.2);
+  --glass-shadow-hover: 0 0 25px rgba(255, 0, 255, 0.5), inset 0 0 15px rgba(0, 255, 255, 0.3);
+  --glass-shadow-elevated: 0 0 35px rgba(0, 255, 255, 0.6);
+  --glass-bg: rgba(10, 10, 20, 0.6);
+  --glass-bg-hover: rgba(20, 10, 30, 0.7);
+  --glass-bg-solid: #050510;
+  --glass-bg-page: linear-gradient(135deg, #050510 0%, #1a0b2e 50%, #001220 100%);
+  --glass-text-primary: #00ffff;
+  --glass-text-secondary: #ff00ff;
+  --glass-text-muted: rgba(0, 255, 255, 0.5);
+
+  --glass-accent: #ff00ff;
+  --glass-accent-hover: #ff33ff;
+  --glass-accent-rgb: 255, 0, 255;
+
+  --glass-success: #00ff00;
+  --glass-danger: #ff003c;
+  --glass-warning: #fce205;
+
+  --glass-blur: 8px;
+  --glass-blur-light: 4px;
+  --glass-blur-heavy: 12px;
+}
+
+/* ── Minimalist Monochrome Theme ── */
+[data-theme="minimalist"],
+.glass-theme-minimalist {
+  --glass-opacity: 0.03;
+  --glass-opacity-hover: 0.06;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --glass-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.2);
+  --glass-shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(0, 0, 0, 0.4);
+  --glass-bg-hover: rgba(0, 0, 0, 0.6);
+  --glass-bg-solid: #111111;
+  --glass-bg-page: #0a0a0a;
+  --glass-text-primary: #ffffff;
+  --glass-text-secondary: #aaaaaa;
+  --glass-text-muted: #666666;
+
+  --glass-accent: #ffffff;
+  --glass-accent-hover: #cccccc;
+  --glass-accent-rgb: 255, 255, 255;
+
+  --glass-success: #ffffff;
+  --glass-danger: #ffffff;
+  --glass-warning: #ffffff;
+
+  --glass-blur: 10px;
+  --glass-blur-light: 5px;
+  --glass-blur-heavy: 20px;
+}
+
+/* Force monochrome for minimal buttons/elements */
+[data-theme="minimalist"] .glass-btn-primary,
+.glass-theme-minimalist .glass-btn-primary,
+[data-theme="minimalist"] .glass-badge,
+.glass-theme-minimalist .glass-badge {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+[data-theme="minimalist"] .glass-btn-primary:hover,
+.glass-theme-minimalist .glass-btn-primary:hover {
+    background: rgba(255,255,255,0.2);
+}
