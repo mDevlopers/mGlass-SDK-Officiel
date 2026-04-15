@@ -4001,6 +4001,157 @@ p:last-child {
 .glass-skeleton-line-short { width: 120px; height: 10px; border-radius: 5px; }
 
 
+/* ── components/menus-advanced.css ── */
+/* ============================================
+   mGlass SDK — Advanced Menus v1.0.0
+   Floating Context & Radial Menus
+   ============================================ */
+
+/* ── Floating Context Menu ── */
+.glass-context-menu {
+  position: absolute;
+  min-width: 200px;
+  padding: var(--glass-space-xs);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: var(--glass-shadow-elevated);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.glass-context-menu.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.glass-context-item {
+  display: flex;
+  align-items: center;
+  padding: var(--glass-space-sm) var(--glass-space-md);
+  color: var(--glass-text-primary);
+  text-decoration: none;
+  border-radius: calc(var(--glass-radius) - 4px);
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.glass-context-item:hover {
+  background: rgba(var(--glass-accent-rgb), 0.15);
+  color: var(--glass-accent);
+}
+
+.glass-context-divider {
+  height: 1px;
+  background: var(--glass-border);
+  margin: var(--glass-space-xs) 0;
+}
+
+/* ── Radial Menu ── */
+.glass-radial-menu {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.glass-radial-trigger {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--glass-text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease;
+}
+
+.glass-radial-trigger:hover {
+  background: var(--glass-bg-hover);
+  transform: scale(1.1);
+}
+
+.glass-radial-menu.active .glass-radial-trigger {
+  transform: rotate(45deg);
+  background: rgba(var(--glass-danger-rgb), 0.2);
+  border-color: var(--glass-danger);
+  color: var(--glass-danger);
+}
+
+.glass-radial-items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.glass-radial-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px; /* Center perfectly */
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--glass-text-primary);
+  text-decoration: none;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: auto;
+}
+
+.glass-radial-item:hover {
+  background: rgba(var(--glass-accent-rgb), 0.2);
+  border-color: var(--glass-accent);
+  color: var(--glass-accent);
+  transform: scale(1.1) !important; /* Keep scale on hover but respect positioning */
+}
+
+/* Example generic positioning for 6 items - normally calculated via JS or specific CSS classes per item */
+.glass-radial-menu.active .glass-radial-item:nth-child(1) { opacity: 1; transform: translate(0, -90px) scale(1); transition-delay: 0.05s; }
+.glass-radial-menu.active .glass-radial-item:nth-child(2) { opacity: 1; transform: translate(78px, -45px) scale(1); transition-delay: 0.1s; }
+.glass-radial-menu.active .glass-radial-item:nth-child(3) { opacity: 1; transform: translate(78px, 45px) scale(1); transition-delay: 0.15s; }
+.glass-radial-menu.active .glass-radial-item:nth-child(4) { opacity: 1; transform: translate(0, 90px) scale(1); transition-delay: 0.2s; }
+.glass-radial-menu.active .glass-radial-item:nth-child(5) { opacity: 1; transform: translate(-78px, 45px) scale(1); transition-delay: 0.25s; }
+.glass-radial-menu.active .glass-radial-item:nth-child(6) { opacity: 1; transform: translate(-78px, -45px) scale(1); transition-delay: 0.3s; }
+
+
 /* ── components/navigation-extra.css ── */
 /* ============================================
    mGlass SDK — Navigation Extra v1.2.0
@@ -4691,6 +4842,313 @@ p:last-child {
 }
 
 
+/* ── components/widgets-advanced.css ── */
+/* ============================================
+   mGlass SDK — Advanced Widgets v1.0.0
+   Music Player & Minimalist Analytics
+   ============================================ */
+
+/* ── Music Player Widget ── */
+.glass-widget-music {
+  display: flex;
+  flex-direction: column;
+  padding: var(--glass-space-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-lg);
+  box-shadow: var(--glass-shadow);
+  width: 100%;
+  max-width: 350px;
+  gap: var(--glass-space-md);
+}
+
+.glass-music-header {
+  display: flex;
+  align-items: center;
+  gap: var(--glass-space-md);
+}
+
+.glass-music-cover {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--glass-radius);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.glass-music-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.glass-music-info {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.glass-music-title {
+  font-weight: 600;
+  color: var(--glass-text-primary);
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.glass-music-artist {
+  font-size: 0.85rem;
+  color: var(--glass-text-secondary);
+  margin: 0;
+}
+
+.glass-music-progress-container {
+  display: flex;
+  align-items: center;
+  gap: var(--glass-space-sm);
+  font-size: 0.75rem;
+  color: var(--glass-text-muted);
+}
+
+.glass-music-progress-bar {
+  flex-grow: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-music-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--glass-accent);
+  border-radius: 3px;
+}
+
+.glass-music-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--glass-space-lg);
+}
+
+.glass-music-btn {
+  background: transparent;
+  border: none;
+  color: var(--glass-text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: var(--glass-space-xs);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glass-music-btn:hover {
+  color: var(--glass-accent);
+  transform: scale(1.1);
+}
+
+.glass-music-btn.play-pause {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(var(--glass-accent-rgb), 0.15);
+  color: var(--glass-accent);
+  font-size: 1.5rem;
+  border: 1px solid rgba(var(--glass-accent-rgb), 0.3);
+}
+
+.glass-music-btn.play-pause:hover {
+  background: rgba(var(--glass-accent-rgb), 0.25);
+  transform: scale(1.05);
+}
+
+
+/* ── Minimalist Analytics Widget ── */
+.glass-widget-analytics {
+  padding: var(--glass-space-md) var(--glass-space-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--glass-space-sm);
+  min-width: 200px;
+}
+
+.glass-analytics-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--glass-text-secondary);
+  margin: 0;
+}
+
+.glass-analytics-value {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--glass-text-primary);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.glass-analytics-trend {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+}
+
+.glass-analytics-trend.positive {
+  color: var(--glass-success);
+  background: rgba(var(--glass-success-rgb), 0.1);
+  border: 1px solid rgba(var(--glass-success-rgb), 0.2);
+}
+
+.glass-analytics-trend.negative {
+  color: var(--glass-danger);
+  background: rgba(var(--glass-danger-rgb), 0.1);
+  border: 1px solid rgba(var(--glass-danger-rgb), 0.2);
+}
+
+.glass-analytics-sparkline {
+  margin-top: var(--glass-space-sm);
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.glass-sparkline-bar {
+  flex: 1;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px 2px 0 0;
+  transition: background 0.2s ease, height 0.5s ease;
+}
+
+.glass-sparkline-bar:hover {
+  background: var(--glass-accent);
+}
+
+
+/* ── effects/advanced-effects.css ── */
+/* ============================================
+   mGlass SDK — Advanced Effects v1.0.0
+   Holographic, Glitch & Hover Glow Effects
+   ============================================ */
+
+/* ── Holographic Reflection ── */
+.glass-effect-holo {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-effect-holo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(0, 255, 255, 0.2) 40%,
+    rgba(255, 0, 255, 0.2) 60%,
+    rgba(255, 255, 255, 0.1) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glass-effect-holo:hover::after {
+  left: 200%;
+}
+
+/* ── Cyber Glitch Effect ── */
+.glass-effect-glitch {
+  position: relative;
+}
+
+.glass-effect-glitch::before,
+.glass-effect-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glass-effect-glitch:hover::before {
+  opacity: 0.8;
+  left: 2px;
+  text-shadow: -2px 0 #ff00ff;
+  animation: glitch-anim-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.glass-effect-glitch:hover::after {
+  opacity: 0.8;
+  left: -2px;
+  text-shadow: -2px 0 #00ffff;
+  animation: glitch-anim-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+  40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
+  100% { clip-path: inset(30% 0 50% 0); transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, 1px); }
+  20% { clip-path: inset(30% 0 20% 0); transform: translate(-2px, -1px); }
+  40% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 2px); }
+  60% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, -2px); }
+  80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, 1px); }
+  100% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, -1px); }
+}
+
+/* ── Hover Glow Effect ── */
+.glass-effect-glow {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-effect-glow:hover {
+  box-shadow: 0 0 20px var(--glass-accent), inset 0 0 10px rgba(var(--glass-accent-rgb), 0.5);
+  border-color: var(--glass-accent);
+}
+
+
 /* ── effects/liquid-extras.css ── */
 /* ============================================
    mGlass SDK — Liquid Extras v1.2.0
@@ -4778,6 +5236,90 @@ p:last-child {
 
 .glass-border-glow:hover::before {
   opacity: 1;
+}
+
+
+/* ── themes/advanced-themes.css ── */
+/* ============================================
+   mGlass SDK — Advanced Themes v1.0.0
+   Cyberpunk & Minimalist Themes
+   ============================================ */
+
+/* ── Cyberpunk Theme ── */
+[data-theme="cyberpunk"],
+.glass-theme-cyberpunk {
+  --glass-opacity: 0.15;
+  --glass-opacity-hover: 0.25;
+  --glass-border: rgba(0, 255, 255, 0.4);
+  --glass-border-hover: rgba(255, 0, 255, 0.6);
+  --glass-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 0, 255, 0.2);
+  --glass-shadow-hover: 0 0 25px rgba(255, 0, 255, 0.5), inset 0 0 15px rgba(0, 255, 255, 0.3);
+  --glass-shadow-elevated: 0 0 35px rgba(0, 255, 255, 0.6);
+  --glass-bg: rgba(10, 10, 20, 0.6);
+  --glass-bg-hover: rgba(20, 10, 30, 0.7);
+  --glass-bg-solid: #050510;
+  --glass-bg-page: linear-gradient(135deg, #050510 0%, #1a0b2e 50%, #001220 100%);
+  --glass-text-primary: #00ffff;
+  --glass-text-secondary: #ff00ff;
+  --glass-text-muted: rgba(0, 255, 255, 0.5);
+
+  --glass-accent: #ff00ff;
+  --glass-accent-hover: #ff33ff;
+  --glass-accent-rgb: 255, 0, 255;
+
+  --glass-success: #00ff00;
+  --glass-danger: #ff003c;
+  --glass-warning: #fce205;
+
+  --glass-blur: 8px;
+  --glass-blur-light: 4px;
+  --glass-blur-heavy: 12px;
+}
+
+/* ── Minimalist Monochrome Theme ── */
+[data-theme="minimalist"],
+.glass-theme-minimalist {
+  --glass-opacity: 0.03;
+  --glass-opacity-hover: 0.06;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --glass-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.2);
+  --glass-shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(0, 0, 0, 0.4);
+  --glass-bg-hover: rgba(0, 0, 0, 0.6);
+  --glass-bg-solid: #111111;
+  --glass-bg-page: #0a0a0a;
+  --glass-text-primary: #ffffff;
+  --glass-text-secondary: #aaaaaa;
+  --glass-text-muted: #666666;
+
+  --glass-accent: #ffffff;
+  --glass-accent-hover: #cccccc;
+  --glass-accent-rgb: 255, 255, 255;
+
+  --glass-success: #ffffff;
+  --glass-danger: #ffffff;
+  --glass-warning: #ffffff;
+
+  --glass-blur: 10px;
+  --glass-blur-light: 5px;
+  --glass-blur-heavy: 20px;
+}
+
+/* Force monochrome for minimal buttons/elements */
+[data-theme="minimalist"] .glass-btn-primary,
+.glass-theme-minimalist .glass-btn-primary,
+[data-theme="minimalist"] .glass-badge,
+.glass-theme-minimalist .glass-badge {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+[data-theme="minimalist"] .glass-btn-primary:hover,
+.glass-theme-minimalist .glass-btn-primary:hover {
+    background: rgba(255,255,255,0.2);
 }
 
 

@@ -1,0 +1,99 @@
+/* ============================================
+   mGlass SDK — Advanced Effects v1.0.0
+   Holographic, Glitch & Hover Glow Effects
+   ============================================ */
+
+/* ── Holographic Reflection ── */
+.glass-effect-holo {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-effect-holo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(0, 255, 255, 0.2) 40%,
+    rgba(255, 0, 255, 0.2) 60%,
+    rgba(255, 255, 255, 0.1) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glass-effect-holo:hover::after {
+  left: 200%;
+}
+
+/* ── Cyber Glitch Effect ── */
+.glass-effect-glitch {
+  position: relative;
+}
+
+.glass-effect-glitch::before,
+.glass-effect-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glass-effect-glitch:hover::before {
+  opacity: 0.8;
+  left: 2px;
+  text-shadow: -2px 0 #ff00ff;
+  animation: glitch-anim-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.glass-effect-glitch:hover::after {
+  opacity: 0.8;
+  left: -2px;
+  text-shadow: -2px 0 #00ffff;
+  animation: glitch-anim-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+  40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
+  100% { clip-path: inset(30% 0 50% 0); transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, 1px); }
+  20% { clip-path: inset(30% 0 20% 0); transform: translate(-2px, -1px); }
+  40% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 2px); }
+  60% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, -2px); }
+  80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, 1px); }
+  100% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, -1px); }
+}
+
+/* ── Hover Glow Effect ── */
+.glass-effect-glow {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-effect-glow:hover {
+  box-shadow: 0 0 20px var(--glass-accent), inset 0 0 10px rgba(var(--glass-accent-rgb), 0.5);
+  border-color: var(--glass-accent);
+}

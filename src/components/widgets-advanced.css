@@ -1,0 +1,202 @@
+/* ============================================
+   mGlass SDK — Advanced Widgets v1.0.0
+   Music Player & Minimalist Analytics
+   ============================================ */
+
+/* ── Music Player Widget ── */
+.glass-widget-music {
+  display: flex;
+  flex-direction: column;
+  padding: var(--glass-space-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-lg);
+  box-shadow: var(--glass-shadow);
+  width: 100%;
+  max-width: 350px;
+  gap: var(--glass-space-md);
+}
+
+.glass-music-header {
+  display: flex;
+  align-items: center;
+  gap: var(--glass-space-md);
+}
+
+.glass-music-cover {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--glass-radius);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.glass-music-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.glass-music-info {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.glass-music-title {
+  font-weight: 600;
+  color: var(--glass-text-primary);
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.glass-music-artist {
+  font-size: 0.85rem;
+  color: var(--glass-text-secondary);
+  margin: 0;
+}
+
+.glass-music-progress-container {
+  display: flex;
+  align-items: center;
+  gap: var(--glass-space-sm);
+  font-size: 0.75rem;
+  color: var(--glass-text-muted);
+}
+
+.glass-music-progress-bar {
+  flex-grow: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-music-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--glass-accent);
+  border-radius: 3px;
+}
+
+.glass-music-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--glass-space-lg);
+}
+
+.glass-music-btn {
+  background: transparent;
+  border: none;
+  color: var(--glass-text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: var(--glass-space-xs);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glass-music-btn:hover {
+  color: var(--glass-accent);
+  transform: scale(1.1);
+}
+
+.glass-music-btn.play-pause {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(var(--glass-accent-rgb), 0.15);
+  color: var(--glass-accent);
+  font-size: 1.5rem;
+  border: 1px solid rgba(var(--glass-accent-rgb), 0.3);
+}
+
+.glass-music-btn.play-pause:hover {
+  background: rgba(var(--glass-accent-rgb), 0.25);
+  transform: scale(1.05);
+}
+
+
+/* ── Minimalist Analytics Widget ── */
+.glass-widget-analytics {
+  padding: var(--glass-space-md) var(--glass-space-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--glass-space-sm);
+  min-width: 200px;
+}
+
+.glass-analytics-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--glass-text-secondary);
+  margin: 0;
+}
+
+.glass-analytics-value {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--glass-text-primary);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.glass-analytics-trend {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+}
+
+.glass-analytics-trend.positive {
+  color: var(--glass-success);
+  background: rgba(var(--glass-success-rgb), 0.1);
+  border: 1px solid rgba(var(--glass-success-rgb), 0.2);
+}
+
+.glass-analytics-trend.negative {
+  color: var(--glass-danger);
+  background: rgba(var(--glass-danger-rgb), 0.1);
+  border: 1px solid rgba(var(--glass-danger-rgb), 0.2);
+}
+
+.glass-analytics-sparkline {
+  margin-top: var(--glass-space-sm);
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.glass-sparkline-bar {
+  flex: 1;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px 2px 0 0;
+  transition: background 0.2s ease, height 0.5s ease;
+}
+
+.glass-sparkline-bar:hover {
+  background: var(--glass-accent);
+}
